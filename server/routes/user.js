@@ -2,7 +2,10 @@ const express = require("express");
 const user = require("../model/userDetail");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const upload = require("../middlewear/multer");
 const sec_key = "adkfkadjf";
+const addpost=require("../model/post");
+const uplodToCloudinary = require("../middlewear/cloudinery");
 router.post("/signup", async (req, res) => {
   const data = new user();
   data.name = req.body.name;
@@ -13,7 +16,6 @@ router.post("/signup", async (req, res) => {
   const paylod = {
     id: d._id,
   };
-
   const token = jwt.sign(paylod, sec_key);
   res.status(200).json(d);
 });
@@ -50,5 +52,18 @@ router.post("/login", async (req, res) => {
     res.status(401).send("plese enter all fields first !!");
   }
 });
+
+router.post('/addpost',upload.single('user_image'),async(req,res)=>{
+    const newPost=new addpost()
+    const result = await uplodToCloudinary(req.file.path);
+    newPost.title=req.body.title
+    newPost.description=req.body.description
+    newPost.username=req.body.username
+    newPost.catagories=req.body.catagories
+    newPost.picture = result
+    newPost.createddata=new Date()
+    const data=await newPost.save()
+    res.send({data});
+})
 
 module.exports = router;

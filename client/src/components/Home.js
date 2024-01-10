@@ -1,5 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { catagories } from "./data";
+import { useNavigate} from "react-router-dom";
 import "../index.css"
 export default function Home() {
   const navigate=useNavigate();
@@ -7,7 +6,7 @@ export default function Home() {
     <div className="container-fluid">
       <div className="col">
         <div className="row">
-          <img src="./images/flowers-interior-room-home.jpg" className="" />
+          <img src="./images/new.jpg" className="" alt="load.. "/>
         </div>
       </div>
       <div className="col-2">
