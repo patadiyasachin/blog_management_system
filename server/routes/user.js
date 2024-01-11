@@ -54,7 +54,10 @@ router.post("/login", async (req, res) => {
 });
 
 router.post('/addpost',upload.single('user_image'),async(req,res)=>{
+
+  try{
     const newPost=new addpost()
+    console.log(req.file)
     const result = await uplodToCloudinary(req.file.path);
     newPost.title=req.body.title
     newPost.description=req.body.description
@@ -64,6 +67,9 @@ router.post('/addpost',upload.single('user_image'),async(req,res)=>{
     newPost.createddata=new Date()
     const data=await newPost.save()
     res.send({data});
+  }catch(error){
+    console.error(error);
+  }    
 })
 
 module.exports = router;

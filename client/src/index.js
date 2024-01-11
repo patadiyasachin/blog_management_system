@@ -23,12 +23,12 @@ root.render(
             <Route path="/home" element={<Home/>}></Route>
             <Route path="/post" element={<Post/>}></Route>
 
-            <Route path="/:alltype" element={<Post/>}></Route>
-            <Route path="/:movie" element={<Post/>}></Route>
-            <Route path="/:music" element={<Post/>}></Route>
-            <Route path="/:sport" element={<Post/>}></Route>
-            <Route path="/:tech" element={<Post/>}></Route>
-            <Route path="/:fashion" element={<Post/>}></Route>
+            <Route path="/alltype" element={<Post/>}></Route>
+            <Route path="/movie" element={<Post/>}></Route>
+            <Route path="/music" element={<Post/>}></Route>
+            <Route path="/sport" element={<Post/>}></Route>
+            <Route path="/tech" element={<Post/>}></Route>
+            <Route path="/fashion" element={<Post/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
