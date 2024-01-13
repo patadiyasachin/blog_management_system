@@ -72,4 +72,26 @@ router.post('/addpost',upload.single('user_image'),async(req,res)=>{
   }    
 })
 
+router.get('/getAllPost',async(req,res)=>{
+  try{
+    const data=await addpost.find();
+    res.status(200).send({data})
+  }catch(error){
+    console.log(error);
+  }
+})
+
+router.get('/getByCatagory/:catagory',async(req,res)=>{
+  try{
+    const data=await addpost.find({catagories:req.params.catagory})
+    if(data){
+      res.send({data})
+    }else{
+      res.send(400).send("Data not found !!")
+    }
+  }catch(error){
+    console.log(error);
+  }
+})
+
 module.exports = router;
