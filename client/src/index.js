@@ -7,6 +7,7 @@ import SignUp from "./components/signup";
 import Layout from "./components/layout";
 import Home from "./components/Home";
 import Post from "./components/Post";
+import SelectType from "./components/selectType";
 // import DataProvider from "./contex/DataProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,8 +22,10 @@ root.render(
           {/* </DataProvider> */}
             <Route path="/signup" element={<SignUp />}></Route>
             <Route path="/home" element={<Home/>}></Route>
-            <Route path="/post" element={<Post/>}></Route>
+            <Route path="/post" element={<Post/>}></Route>  
 
+            
+            <Route path="/select" element={<SelectType/>}></Route>
             <Route path="/alltype" element={<Post/>}></Route>
             <Route path="/movie" element={<Post/>}></Route>
             <Route path="/music" element={<Post/>}></Route>

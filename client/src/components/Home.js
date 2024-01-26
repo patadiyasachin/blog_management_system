@@ -1,5 +1,6 @@
 import { useNavigate} from "react-router-dom";
 import "../index.css"
+import SelectType from "./selectType";
 export default function Home() {
   // const history=useHistory()
   const navigate=useNavigate();
@@ -16,42 +17,28 @@ export default function Home() {
             <tbody>
               <thead>
                 <tr className="border-0">
-                  <button className="m-2" onClick={()=>{navigate("/post")
-                  localStorage.setItem("type","alltype")    
+                  <button className="m-2" onClick={()=>{
+                    navigate("/select") 
                   }}>CREATE BLOG</button>
                 </tr>
               </thead>
               <tr>
-                <td onClick={()=>{
-                  navigate('/alltype')
-                  localStorage.setItem("type","alltype")
-                }
-                  }>All Type</td>
+                <td>All Type</td>
               </tr>
               <tr>
-                <td onClick={()=>{navigate('/movie')
-                 localStorage.setItem("type","movie")    
-                  }}>Music</td>
+                <td>Music</td>
               </tr>
               <tr>
-                <td onClick={()=>{navigate('/movie')
-                localStorage.setItem("type","movie")
-              }}>Movies</td>
+                <td>Movies</td>
               </tr>
               <tr>
-                <td onClick={()=>{navigate('/sport')
-              localStorage.setItem("type","sport")
-              }}>Sports</td>
+                <td>Sports</td>
               </tr>
               <tr>
-                <td onClick={()=>{navigate('/tech')
-              localStorage.setItem("type","tech")
-              }}>Tech</td>
+                <td>Tech</td>
               </tr>
               <tr>
-                <td onClick={()=>{navigate('/fashion')
-              localStorage.setItem("type","fashion")
-              }}>Fashion</td>
+                <td>Fashion</td>
               </tr>
             </tbody>
           </table>
