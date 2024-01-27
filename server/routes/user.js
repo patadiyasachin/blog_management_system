@@ -94,4 +94,36 @@ router.get('/getByCatagory/:catagory',async(req,res)=>{
   }
 })
 
+router.get('/:id',async(req,res)=>{
+  try{
+    const data=await addpost.findOne({_id:req.params.id})
+    if(data){
+      res.send(data)
+    }else{
+      res.send("Data not found !!");
+    }
+  }catch(error){
+    console.log(error);
+  }
+})
+
+router.post('/:id',async(req,res)=>{
+  try{
+    const data=await addpost.findOne({_id:req.params.id})
+    data.title=req.body.title
+    data.description=req.body.description
+    data.catagories=req.body.catagories
+    data.picture=req.body.picture
+    await data.save()
+    if(data){
+      res.send(data)
+    }else{
+      res.send("Data Not Updated !!")
+    }
+    console.log(data)
+  }catch(error){
+    console.log(error);
+  }
+})
+
 module.exports = router;

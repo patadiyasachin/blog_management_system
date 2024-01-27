@@ -298,3 +298,13 @@ footer a {
 	width: 100%;
 	height: 40vh;
 }
+
+.customHeight{
+	height: 70vh;
+}
+
+.customHeightWidth{
+	height: 70vh;
+	width: 100%;
+	object-fit: cover;
+}

@@ -50,7 +50,7 @@ export default function Login() {
                             setData(res)
                             localStorage.setItem("user",JSON.stringify(data))
                             // setAccount({username:data.username,name:data.name})
-                            navigate("/signup");
+                            navigate("/home");
                             window.location.reload()
                           } else {
                             document.getElementById("printDiv").innerHTML =
