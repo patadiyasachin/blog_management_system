@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "../index.css";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 const Post = () => {
+    const navigate=useNavigate()
     const [data,setData]=useState({})
     const username=JSON.parse(localStorage.getItem('user')).username
     const catagoty=localStorage.getItem('type')
@@ -33,6 +35,7 @@ const Post = () => {
                         console.log(data)
                         console.log(username)
                         console.log(catagoty)
+                        navigate('/home')
                     }}>Publish</button>
                 </div>  
             </div>

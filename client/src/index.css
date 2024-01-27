@@ -288,3 +288,13 @@ footer a {
 .noneNav{
 	display: none;
 }
+
+.fontSize{
+	width: 100%;
+	font-size: 12px;
+}
+
+.setHeightWidth{
+	width: 100%;
+	height: 40vh;
+}
