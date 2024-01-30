@@ -300,11 +300,18 @@ footer a {
 }
 
 .customHeight{
-	height: 70vh;
+	height: 55vh;
 }
 
 .customHeightWidth{
-	height: 70vh;
-	width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 50vh;
+	width: 50%;
 	object-fit: cover;
 }
+
+

@@ -24,8 +24,11 @@ export default function Home() {
                         <h5 class="card-title">{e.title}</h5>
                         <p class="card-text">{e.description}</p>
                         <Link to={`/${e._id}`} className="btn btn-primary">More...</Link>
-                        {/* <Link className="btn btn-primary ms-1">Edit</Link> */}
-                        <button class="btn btn-primary ms-1" onClick={() => {}}>Delete</button>
+                        <Link to={`/editpost/${e._id}`} className="btn btn-primary ms-1">Edit</Link>
+                        <button class="btn btn-primary ms-1" onClick={() => {
+                          fetch(`http://localhost:3030/${e._id}`,{ method: "DELETE" })
+                          setData(data.filter((data)=>{return data._id!==e._id}))
+                        }}>Delete</button>
                     </div>
                 </div>
             </div>

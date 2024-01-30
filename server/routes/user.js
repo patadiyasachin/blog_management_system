@@ -6,6 +6,7 @@ const upload = require("../middlewear/multer");
 const sec_key = "adkfkadjf";
 const addpost=require("../model/post");
 const uplodToCloudinary = require("../middlewear/cloudinery");
+
 router.post("/signup", async (req, res) => {
   const data = new user();
   data.name = req.body.name;
@@ -54,7 +55,6 @@ router.post("/login", async (req, res) => {
 });
 
 router.post('/addpost',upload.single('user_image'),async(req,res)=>{
-
   try{
     const newPost=new addpost()
     console.log(req.file)
@@ -107,13 +107,26 @@ router.get('/:id',async(req,res)=>{
   }
 })
 
-router.post('/:id',async(req,res)=>{
+router.delete('/:id',async(req,res)=>{
+  try{
+    const data=await addpost.deleteOne({_id:req.params.id})
+    if(data){
+      res.send(data)
+    }
+    res.send("Data not deleted successfully ")
+  }catch(error){
+    console.log(error)
+  }
+})
+
+router.put('/editpost/:id',upload.single('user_image'),async(req,res)=>{
   try{
     const data=await addpost.findOne({_id:req.params.id})
+    const result = await uplodToCloudinary(req.file.path);
     data.title=req.body.title
     data.description=req.body.description
     data.catagories=req.body.catagories
-    data.picture=req.body.picture
+    data.picture=result
     await data.save()
     if(data){
       res.send(data)
