@@ -121,8 +121,7 @@ input {
 .container {
 	background-color: #fff;
 	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
 	width: 768px;
@@ -321,7 +320,7 @@ footer a {
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
-.container {
+.container{
 	width: 60vh;
 	height: 2vh;
 	backdrop-filter: blur(16px) saturate(180%);
@@ -336,6 +335,13 @@ footer a {
 	align-items: center;
 	justify-content:center;
 	text-align: center;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25),0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 480px;
 }
 
 .wrapper {
@@ -353,14 +359,14 @@ footer a {
   border: 1px solid rgba(255,255,255, 0.255)
 }
 
-h1{
+/* h2{
   font-family: 'Righteous', sans-serif;
   color: rgba(255,255,255,0.98);
   text-transform: uppercase;
   font-size: 2.4rem;
-}
+} */
 
-p {
+p{
   color: #fff;
   font-family: 'Lato', sans-serif;
   text-align: center;

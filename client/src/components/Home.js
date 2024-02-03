@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [data,setData]=useState([])
   const [tempData,setTempData]=useState([])
-  const [tempArr,setArr]=useState([])
   const navigate = useNavigate();
-
+  var isVedio=false
   useEffect(() => {
     fetch('http://localhost:3030/getAllPost')
         .then((res) =>{return res.json()})
@@ -18,12 +17,34 @@ export default function Home() {
   }, [])
   
   var formatedPost = tempData.map((e) => {
+    const splt=e.picture.split('.')
+    const len=splt.length-1
+    if(e.picture.split('.')[len]=="mp4"){
+      isVedio=true
+    }
     return (
       <>
       <div className="col-4 p-2">
         <div class="container">
           <div class="wrapper">
-            <img src={e.picture} class="banner-image"/>
+          {
+            isVedio?
+            <video width="320" height="240" controls>
+            <source src={e.picture} type="video/mp4"/>
+            Your browser does not support the video tag.
+            </video>
+            :<img src={e.picture} class="banner-image"/>
+          }
+            {/* <img src={e.picture} class="banner-image"/>
+              <video width="320" height="240" controls>
+              <source src={e.picture} id="imgId" type="video/mp4"/>
+              Your browser does not support the video tag.
+              </video>
+          
+            <video width="320" height="240" controls>
+            <source src={e.picture} id="imgId" type="video/mp4"/>
+            Your browser does not support the video tag.
+            </video> */}
             <h2 className="text-white">{e.title}</h2>
             <p>{e.description}</p>
             </div>
@@ -41,11 +62,11 @@ export default function Home() {
         // <div className="col-4 p-2 con">
         //     <div class="card">
         //         <img src={e.picture} class="card-img-top setHeightWidth" alt="..." />
-        //         <video width="320" height="240" controls>
-        //           <source src={e.picture} type="video/mp4"/>
-        //           <source src={e.picture} type="video/ogg"/>
-        //           Your browser does not support the video tag.
-        //         </video>
+                // <video width="320" height="240" controls>
+                //   <source src={e.picture} type="video/mp4"/>
+                //   <source src={e.picture} type="video/ogg"/>
+                //   Your browser does not support the video tag.
+                // </video>
         //         <div class="card-body">
         //             <div class="content">
         //                 <h5 class="card-title">{e.title}</h5>

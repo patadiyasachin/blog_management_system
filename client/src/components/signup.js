@@ -53,10 +53,8 @@ export default function Signup() {
                           console.log("=====",res);
                           setData(res);
                           localStorage.setItem("user", JSON.stringify(data));
-                          // window.location.reload();
-                        })
-                        .then(()=>{
                           navigate("/login");
+                          // window.location.reload();
                         })
                       : (document.getElementById("printDiv").innerHTML =
                           "Enter all fields first !!");
