@@ -5,7 +5,9 @@ const jwt = require("jsonwebtoken");
 const upload = require("../middlewear/multer");
 const sec_key = "adkfkadjf";
 const addpost=require("../model/post");
+const Addcomment=require("../model/comment");
 const uplodToCloudinary = require("../middlewear/cloudinery");
+const comment = require("../model/comment");
 
 router.post("/signup", async (req, res) => {
   const data = new user();
@@ -134,6 +136,35 @@ router.put('/editpost/:id',upload.single('user_image'),async(req,res)=>{
       res.send("Data Not Updated !!")
     }
     console.log(data)
+  }catch(error){
+    console.log(error);
+  }
+})
+
+router.post('/addComment',async(req,res)=>{
+  try{
+    const newComment=new Addcomment()
+    newComment.name=req.body.name
+    newComment.userId=req.body.userId
+    newComment.comment=req.body.comment
+    newComment.date=new Date()
+    const data=await newComment.save()
+
+    const getData=await comment.find()
+    if(getData){
+      res.send(getData)
+    }else{
+      res.send("Something Went Wrong !!!")
+    }
+  }catch(error){
+    console.log(error);
+  }
+})
+
+router.get('/getAllComment',async(req,res)=>{
+  try{
+    const data=await comment.find()
+    res.send(data)
   }catch(error){
     console.log(error);
   }
