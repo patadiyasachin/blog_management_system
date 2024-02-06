@@ -87,7 +87,32 @@ export default function Home() {
     <div className="container-fluid">
       <div className="col">
         <div className="row">
-          <img src="./images/new.jpg" className="" alt="load.. " />
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./images/new.jpg" className="w-100" alt="load.. " />
+            </div>
+            <div class="carousel-item">
+              <img src="./images/icons-social-media-social-media-wallpaper-preview.jpg" className="w-100" alt="load.. " />
+            </div>
+            <div class="carousel-item">
+               <img src="./images/Improving-Design-Efficiency-by-Leveraging-Cloud-Based-CAD-Collaboration-Tools_Blog-Header.png" className="w-100" alt="load.. " />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
         </div>
       </div>
       <div className="row">
@@ -96,7 +121,7 @@ export default function Home() {
             <table class="table table-bordered text-center">
               <tbody>
                 <thead>
-                  <tr className="border-0">
+                  <tr className="border-0" style={{backgroundColor:"#f6f5f7"}}>
                     <button
                       className="m-2 ms-0 fontSize"
                       onClick={() => {
@@ -108,36 +133,36 @@ export default function Home() {
                   </tr>
                 </thead>
                 <tr>
-                  <td onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories=="alltype"}))
                     console.log(tempData)
                   }}>All Type</td>
                 </tr>
                 <tr>
-                  <td onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories=="music"}))
                   }}>Music</td>
                 </tr>
                 <tr>
-                  <td onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories=="movie"}))
                     console.log(data)
                   }}>Movies</td>
                 </tr>
                 <tr>
-                  <td onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories=="sport"}))
                     console.log(data)
                   }}>Sports</td>
                 </tr>
                 <tr>
-                  <td onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories=="tech"}))
                     console.log(data)
                   }}>Tech</td>
                 </tr>
                 <tr>
-                  <td onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories=="fashion"}))
                     console.log(data)
                   }}>Fashion</td>

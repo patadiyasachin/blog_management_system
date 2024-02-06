@@ -7,7 +7,7 @@ export default function EditPost(){
     const navigate=useNavigate()
 
     useEffect(()=>{
-        fetch(`http://localhost:3030/editpost/${id}`)
+        fetch(`http://localhost:3030/${id}`)
         .then((res)=>{return res.json()})
         .then((res)=>{setData(res)})
     },[])
@@ -38,7 +38,7 @@ export default function EditPost(){
                 <input type='text' className='mt-2 border-1 border-radius-3 w-50' value={data.title} placeholder="Title" onChange={(e) => { setData({ ...data, title: e.target.value }) }} /><br/>
                 <input type='text' className='mt-2 border-1 border-radius-3 w-50' value={data.description} placeholder="Description" onChange={(e) => { setData({ ...data, description: e.target.value }) }} /><br/>
                 <input type='text' className='mt-2 border-1 border-radius-3 w-50' value={data.catagories} placeholder="Catagorie" onChange={(e) => { setData({ ...data, catagories: e.target.value }) }} /><br/>
-                <input type="file" name="user_image"style={{width:200,backgroundColor:"white"}} onChange={(e)=>{
+                <input type="file" name="user_image"style={{width:200,backgroundColor:"#f6f5f7"}} onChange={(e)=>{
                     setData({...data,user_image:e.target.files[0]})
                 }}/>
                 <button className='mt-2 border border-radius-3 ' onClick={() => {
