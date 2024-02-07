@@ -6,14 +6,14 @@ const commentschema=mongoose.Schema({
     },
     userId:{
         type:String,
-        required:true
+        required:true,
     },
     comment:{
         type:String,
         required:true
     },
     date:{
-        type:Date
+        type:Date,
     }
 })
 

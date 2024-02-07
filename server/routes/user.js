@@ -149,10 +149,8 @@ router.post('/addComment',async(req,res)=>{
     newComment.comment=req.body.comment
     newComment.date=new Date()
     const data=await newComment.save()
-
-    const getData=await comment.find()
-    if(getData){
-      res.send(getData)
+    if(data){
+      res.send(data)
     }else{
       res.send("Something Went Wrong !!!")
     }
@@ -161,12 +159,25 @@ router.post('/addComment',async(req,res)=>{
   }
 })
 
-router.get('/getAllComment',async(req,res)=>{
+router.get('/getCmnt/:id',async(req,res)=>{
+    try{
+      const data=await comment.find({userId:req.params.id});
+      console.log("......................................",data);
+      res.status(200).send(data)
+    }catch(error){
+      console.log(error);
+    }
+})
+
+router.delete('/deletecomment/:id',async(req,res)=>{
   try{
-    const data=await comment.find()
-    res.send(data)
+    const data=await comment.deleteOne({_id:req.params.id})
+    if(data){
+      res.send(data)
+    }
+    res.send("Data not deleted successfully ")
   }catch(error){
-    console.log(error);
+    console.log(error)
   }
 })
 

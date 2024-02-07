@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 export default function DetailPost(){
     const { id } = useParams()
     const [data, setData] = useState({})
+    const [getData,setGetData]=useState([])
     const nme=localStorage.getItem('user')
     const n=JSON.parse(nme).username
     const [coment,setComment]=useState({
@@ -29,6 +30,55 @@ export default function DetailPost(){
             isVedio=true
         }
     }
+
+    async function postComment(){
+        await fetch('http://localhost:3030/addComment',{
+            method: "POST",
+            body: JSON.stringify(coment),
+            headers: { "Content-Type": "application/json" },
+        })
+    }
+
+    function getAllComment(){
+        fetch(`http://localhost:3030/getCmnt/${id}`)
+        .then((res) => { return res.json() })
+        .then((res) => {
+            setGetData(res)
+            console.log(".....",getData);
+        })
+        console.log(".....",getData);
+    }
+
+    const formatedComment=getData.map((d)=>{
+        return(
+            <div style={{backgroundColor:'white',height:80,width:700,marginLeft:30,marginTop:20,borderRadius:20}}>
+                <div className='row'>
+                    <div className='col-11'>
+                        <h4>{d.name}</h4>
+                    </div>
+                    <div className='col'>
+                        <img src='./images/3405244.png' style={{height:30,width:30,margin:2}} onClick={()=>{
+                            fetch(`http://localhost:3030/deletecomment/${d._id}`,{
+                                method:"DELETE"
+                            })    
+                            .then(()=>{
+                                setGetData(getData.filter((data)=>{return data._id!==d._id}))
+                            })
+                        }}/>
+                    </div>
+                </div>
+
+                <div className='row'>
+                    <div className='col-8'>
+                        <h5>{d.comment}</h5>
+                    </div>
+                    <div className='col'>
+                        <h6 className='m-2'>{d.date}</h6>
+                    </div>
+                </div>
+            </div>
+        )
+    })
 
     return(
         <div className="container-fluid">
@@ -63,61 +113,17 @@ export default function DetailPost(){
                 </div>
                 <div className='col'> 
                      <img src="./images/360_F_293724835_LqDz77Sl5zGWOU5eEcPYMM99qeBiiaiu.jpg" style={{height:100,width:81,margin:0}} onClick={()=>{
-                        fetch('http://localhost:3030/addComment',{
-                            method: "POST",
-                            body: JSON.stringify(coment),
-                            headers: { "Content-Type": "application/json" },
-                        })
-                        // fetch('http://localhost:3030/getAllComment')
-                        // .then((res) => { return res.json() })
-                        // .then((res) => {
-                        //     setGetCmt(res)
-                        // })
-                        // console.log("............",getCmt)
+                        postComment()
+                        getAllComment()
                      }}/>
                 </div>
             </div>
-
+            
             <div className='row'>
-            <div style={{backgroundColor:'white',height:80,width:700,marginLeft:30,marginTop:20,borderRadius:20}}>
-                    <div className='row'>
-                        <div className='col-11'>
-                            <h4>Name</h4>
-                        </div>
-                        <div className='col'>
-                            <img src='./images/3405244.png' style={{height:30,width:30,margin:2}}/>
-                        </div>
-                    </div>
-
-                    <div className='row'>
-                        <div className='col-10'>
-                            <h5>Comment</h5>
-                        </div>
-                        <div className='col'>
-                            <h5>DATE</h5>
-                        </div>
-                    </div>
-                </div>
-                <div style={{backgroundColor:'white',height:80,width:700,marginLeft:30,marginTop:20,borderRadius:20}}>
-                    <div className='row'>
-                        <div className='col-11'>
-                            <h4>Name</h4>
-                        </div>
-                        <div className='col'>
-                            <img src='./images/3405244.png' style={{height:30,width:30,margin:2}}/>
-                        </div>
-                    </div>
-
-                    <div className='row'>
-                        <div className='col-10'>
-                            <h5>Comment</h5>
-                        </div>
-                        <div className='col'>
-                            <h5>DATE</h5>
-                        </div>
-                    </div>
-                </div>
+                {formatedComment}
             </div>
         </div>
     )
+
+
 }
