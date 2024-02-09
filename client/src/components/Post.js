@@ -8,10 +8,36 @@ const Post = () => {
     const username=JSON.parse(localStorage.getItem('user')).username
     const catagoty=localStorage.getItem('type')
   return (
-    <div className="container-fluid">
-        <div className="row">
-            <img src="./images/retrosupply-jLwVAUtLOAQ-unsplash (1).jpg" class="h-50" alt="loading.."/>
-        </div>
+        <div className="container-fluid">
+            <div className="row">
+                {(() => {
+                if (catagoty=="music") {
+                    return (
+                        <img src="./images/dfff083e4b609cab84f89b7324a4f86c.webp" class="h-50" style={{aspectRatio:4/1,objectFit:"cover"}} alt="loading.."/>
+                    )
+                } else if (catagoty=="alltype") {
+                    return (
+                        <img src="./images/retrosupply-jLwVAUtLOAQ-unsplash (1).jpg" class="h-50" alt="loading.."/>
+                    )
+                } else if (catagoty=="movie") {
+                    return (
+                        <img src="./images/skybeam_4k.png" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
+                    )
+                } else if (catagoty=="sport") {
+                    return (
+                        <img src="./images/desktop-wallpaper-cricket-blog-virat-kohli-cover-drive.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
+                    )
+                } else if (catagoty=="tech") {
+                    return (
+                        <img src="./images/backlit-blogging-business-coding.jpg" class="h-50" style={{aspectRatio:4/1,objectFit:"cover"}} alt="loading.."/>
+                    )
+                } else if (catagoty=="fashion") {
+                    return (
+                        <img src="./images/360_F_521180377_2iAVJqBQSo3cgKaVp8vMBR8asrC61DoU.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
+                    )
+                } 
+                })()}            
+            </div>
         <div className="row">
                 <div className="col-2">
                     <input type="file" name="user_image"style={{width:200,backgroundColor:"white"}} onChange={(e)=>{

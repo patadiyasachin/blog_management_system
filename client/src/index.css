@@ -42,6 +42,7 @@ td:hover{
 	background-color: lightgrey;
 	color: red;
 	cursor: pointer;
+	border: 1px solid red;
 }
 
 h1 {

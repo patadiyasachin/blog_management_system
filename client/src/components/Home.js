@@ -95,13 +95,13 @@ export default function Home() {
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./images/new.jpg" className="w-100" alt="load.. " />
+              <img src="./images/new.jpg" style={{aspectRatio:3/1,objectFit:"cover"}} className="w-100" alt="load.. " />
             </div>
             <div class="carousel-item">
-              <img src="./images/icons-social-media-social-media-wallpaper-preview.jpg" className="w-100" alt="load.. " />
+              <img src="./images/icons-social-media-social-media-wallpaper-preview.jpg" className="w-100" style={{aspectRatio:3/1,objectFit:"cover"}} alt="load.. " />
             </div>
             <div class="carousel-item">
-               <img src="./images/Improving-Design-Efficiency-by-Leveraging-Cloud-Based-CAD-Collaboration-Tools_Blog-Header.png" className="w-100" alt="load.. " />
+               <img src="./images/Improving-Design-Efficiency-by-Leveraging-Cloud-Based-CAD-Collaboration-Tools_Blog-Header.png" style={{aspectRatio:3/1,objectFit:"cover"}} className="w-100" alt="load.. " />
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -140,7 +140,7 @@ export default function Home() {
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="music"}))
+                    setTempData(data.filter((data)=>{return data.catagories=="music"})) 
                   }}>Music</td>
                 </tr>
                 <tr>

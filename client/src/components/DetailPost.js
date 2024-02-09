@@ -57,7 +57,7 @@ export default function DetailPost(){
                         <h4>{d.name}</h4>
                     </div>
                     <div className='col'>
-                        <img src='./images/3405244.png' style={{height:30,width:30,margin:2}} onClick={()=>{
+                        <img src='./images/3405244.png' style={{height:30,width:30,margin:2,transition:"all ease .5s"}} onClick={()=>{
                             fetch(`http://localhost:3030/deletecomment/${d._id}`,{
                                 method:"DELETE"
                             })    
