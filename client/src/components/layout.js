@@ -3,11 +3,6 @@ import "../index.css";
 export default function Layout() {
   const navigate = useNavigate();
   const auth = localStorage.getItem("user");
-  function logout() {
-    localStorage.clear();
-    navigate("/signup");
-    window.location.reload();
-  }
   return (
     <>
       <div className="row clr">
@@ -21,20 +16,22 @@ export default function Layout() {
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="#">
+                  <Link class="nav-link" to="/about">
                     About
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link">Contact Me</Link>
+                  <Link class="nav-link" to="/contact">Contact Me</Link>
                 </li>
                 <li class="nav nav-underline">
                   <Link
                     class="nav-link"
                     style={{ color: "red" }}
-                    to="./signup"
+                    to="/signup"
                     onClick={() => {
-                      logout();
+                      navigate("/signup");
+                      localStorage.clear();
+                      window.location.reload();
                     }}
                   >
                     LogOut ({JSON.parse(auth).username})

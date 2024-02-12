@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
+import '../App.css'
 export default function EditPost(){
     const [data,setData]=useState({})
     const {id}=useParams()
@@ -18,15 +19,7 @@ export default function EditPost(){
         formData.append("title",data.title)
         formData.append("description",data.description)
         formData.append("catagories",data.catagories)
-        // fetch(`http://localhost:3030/editpost/${id}`,{
-        //     method:"PUT",
-        //     body:JSON.stringify(data),
-        //     headers:{"Content-Type": "application/json"} 
-        // })
-        // .then(()=>{
-        //     navigate('/home')
-        // })
-
+        
         axios.put(`http://localhost:3030/editpost/${id}`,formData)
         .then((res)=>{
             navigate('/home')
@@ -34,18 +27,28 @@ export default function EditPost(){
     }   
     return(
         <>
-            <div className="">
-                <input type='text' className='mt-2 border-1 border-radius-3 w-50' value={data.title} placeholder="Title" onChange={(e) => { setData({ ...data, title: e.target.value }) }} /><br/>
-                <input type='text' className='mt-2 border-1 border-radius-3 w-50' value={data.description} placeholder="Description" onChange={(e) => { setData({ ...data, description: e.target.value }) }} /><br/>
-                <input type='text' className='mt-2 border-1 border-radius-3 w-50' value={data.catagories} placeholder="Catagorie" onChange={(e) => { setData({ ...data, catagories: e.target.value }) }} /><br/>
-                <input type="file" name="user_image"style={{width:200,backgroundColor:"#f6f5f7"}} onChange={(e)=>{
-                    setData({...data,user_image:e.target.files[0]})
-                }}/>
-                <button className='mt-2 border border-radius-3 ' onClick={() => {
-                     editData()
-                     console.warn(data)
-                }}>Update</button>  
-            </div>    
+            <div class="parentDiv">
+                <div class="containerForEdit">
+                    {/* <div class="brand-logo"></div> */}
+                    <div class="brand-title">Edit Blog Here..</div>
+                    <div class="inputsForEdit">
+                        <label>Title</label>
+                        <input type="text" value={data.title} onChange={(e) => { setData({ ...data, title: e.target.value }) }}/>
+                        <label>Description</label>
+                        <input type="text" value={data.description} onChange={(e) => { setData({ ...data, description: e.target.value }) }}/>
+                        <label>Catagorie</label>
+                        <input type="text" value={data.catagories} onChange={(e) => { setData({ ...data, catagories: e.target.value }) }}/>
+                        <label>Select File</label>
+                        <input type="file" name="user_image"style={{width:200,backgroundColor:"#f6f5f7"}} onChange={(e)=>{
+                            setData({...data,user_image:e.target.files[0]})
+                        }}/>
+                        <button type="submit" onClick={() => {
+                            editData()
+                            console.warn(data)
+                        }}>EDIT</button>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

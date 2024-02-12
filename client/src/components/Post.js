@@ -25,7 +25,7 @@ const Post = () => {
                     )
                 } else if (catagoty=="sport") {
                     return (
-                        <img src="./images/desktop-wallpaper-cricket-blog-virat-kohli-cover-drive.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
+                        <img src="./images/sports-cricket-wallpaper-preview.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
                     )
                 } else if (catagoty=="tech") {
                     return (

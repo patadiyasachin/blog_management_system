@@ -51,10 +51,9 @@ export default function Signup() {
                           headers: { "Content-Type": "application/json" },
                         }).then((res) => {
                           console.log("=====",res);
-                          setData(res);
-                          localStorage.setItem("user", JSON.stringify(data));
                           navigate("/login");
-                          // window.location.reload();
+                          // setData(res);
+                          localStorage.setItem("user", JSON.stringify(data));
                         })
                       : (document.getElementById("printDiv").innerHTML =
                           "Enter all fields first !!");
