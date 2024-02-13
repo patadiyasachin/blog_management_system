@@ -19,7 +19,7 @@ export default function Home() {
   var formatedPost = tempData.map((e) => {
     const splt=e.picture.split('.')
     const len=splt.length-1
-    if(e.picture.split('.')[len]=="mp4"){
+    if(e.picture.split('.')[len]==="mp4"){
       isVedio=true
     }
     return (
@@ -75,7 +75,7 @@ export default function Home() {
         //                 <Link to={`/editpost/${e._id}`} className="btn btn-primary ms-1">Edit</Link>
         //                 <button class="btn btn-primary ms-1" onClick={() => {
         //                   fetch(`http://localhost:3030/${e._id}`,{ method: "DELETE" })
-        //                   setTempData(data.filter((data)=>{return data._id!==e._id}))
+        //                   setTempData(data.filter((data)=>{return data._id!===e._id}))
         //                 }}>Delete</button>
         //             </div>
         //         </div>
@@ -134,36 +134,36 @@ export default function Home() {
                 </thead>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="alltype"}))
+                    setTempData(data.filter((data)=>{return data.catagories==="alltype"}))
                     console.log(tempData)
                   }}>All Type</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="music"})) 
+                    setTempData(data.filter((data)=>{return data.catagories==="music"})) 
                   }}>Music</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="movie"}))
+                    setTempData(data.filter((data)=>{return data.catagories==="movie"}))
                     console.log(data)
                   }}>Movies</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="sport"}))
+                    setTempData(data.filter((data)=>{return data.catagories==="sport"}))
                     console.log(data)
                   }}>Sports</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="tech"}))
+                    setTempData(data.filter((data)=>{return data.catagories==="tech"}))
                     console.log(data)
                   }}>Tech</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories=="fashion"}))
+                    setTempData(data.filter((data)=>{return data.catagories==="fashion"}))
                     console.log(data)
                   }}>Fashion</td>
                 </tr>

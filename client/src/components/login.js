@@ -49,7 +49,6 @@ export default function Login() {
                             console.log("res=",res)
                             setData(res)
                             localStorage.setItem("user",JSON.stringify(data))
-                            // setAccount({username:data.username,name:data.name})
                             navigate("/home");
                             window.location.reload()
                           } else {

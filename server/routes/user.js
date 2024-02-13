@@ -6,8 +6,10 @@ const upload = require("../middlewear/multer");
 const sec_key = "adkfkadjf";
 const addpost=require("../model/post");
 const Addcomment=require("../model/comment");
+const moment = require('moment');
 const uplodToCloudinary = require("../middlewear/cloudinery");
 const comment = require("../model/comment");
+const contactPage=require("../model/contactPage")
 
 router.post("/signup", async (req, res) => {
   const data = new user();
@@ -144,10 +146,12 @@ router.put('/editpost/:id',upload.single('user_image'),async(req,res)=>{
 router.post('/addComment',async(req,res)=>{
   try{
     const newComment=new Addcomment()
+    const date = new Date();
+    const formattedDate = moment(date).format('DD-MMM-YYYY');
     newComment.name=req.body.name
     newComment.userId=req.body.userId
     newComment.comment=req.body.comment
-    newComment.date=new Date()
+    newComment.date=formattedDate
     const data=await newComment.save()
     if(data){
       res.send(data)
@@ -163,7 +167,9 @@ router.get('/getCmnt/:id',async(req,res)=>{
     try{
       const data=await comment.find({userId:req.params.id});
       console.log("......................................",data);
-      res.status(200).send(data)
+      if(data){
+        res.status(200).send(data)
+      }
     }catch(error){
       console.log(error);
     }
@@ -174,11 +180,28 @@ router.delete('/deletecomment/:id',async(req,res)=>{
     const data=await comment.deleteOne({_id:req.params.id})
     if(data){
       res.send(data)
+    }else{
+      res.send("Data not deleted successfully ")
     }
-    res.send("Data not deleted successfully ")
   }catch(error){
     console.log(error)
   }
 })
 
+router.post('/contactpage',async(req,res)=>{
+  try{
+    const contact=new contactPage()
+    contact.name=req.body.name
+    contact.email=req.body.email
+    contact.discription=req.body.discription
+    const data=await contact.save()
+    if(data){
+      res.send(data)
+    }else{
+      res.send("Something Went Wrong !!!")
+    }
+  }catch(error){
+    console.log(error);
+  }
+})  
 module.exports = router;

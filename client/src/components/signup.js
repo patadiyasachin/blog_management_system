@@ -11,7 +11,7 @@ export default function Signup() {
         <div class="col mainDiv">
           <div class="container" id="container">
             <div class="form-container sign-in-container">
-              <form action="#">
+              <form>
                 <h1>Sign Up</h1>
                 <input
                   type="text"
@@ -39,7 +39,8 @@ export default function Signup() {
                 />
                 <button
                   style={{ marginTop: 9 }}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
                     const n = document.getElementById("name").value;
                     const u = document.getElementById("uname").value;
                     const p = document.getElementById("pwd").value;

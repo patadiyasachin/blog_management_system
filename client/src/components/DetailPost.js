@@ -69,11 +69,11 @@ export default function DetailPost(){
                 </div>
 
                 <div className='row'>
-                    <div className='col-8'>
+                    <div className='col-10'>
                         <h5>{d.comment}</h5>
                     </div>
                     <div className='col'>
-                        <h6 className='m-2'>{d.date}</h6>
+                        <h6 className='m-2'style={{fontSize:"13px"}}>{d.date}</h6>
                     </div>
                 </div>
             </div>
@@ -86,11 +86,11 @@ export default function DetailPost(){
                 <div className="col">
                 {
                     isVedio?
-                    <video width="320" height="240" controls className="customHeightWidth">
+                    <video width="320" height="240" controls className="customHeightWidth" style={{borderRadius:"20px"}}>
                     <source src={data.picture} id="imgId" type="video/mp4"/>
                     Your browser does not support the video tag.
                     </video>
-                    :<img src={data.picture} className="customHeightWidth"/>
+                    :<img src={data.picture} className="customHeightWidth" style={{borderRadius:"20px"}}/>
                 }
                     {/* <video width="320" height="240" controls className="customHeightWidth">
                     <source src={data.picture} id="imgId" type="video/mp4"/>
@@ -107,7 +107,7 @@ export default function DetailPost(){
 
             <div className='row'>
                 <div className='col-11'>
-                    <textarea style={{height:90,width:"100%",margin:10,marginRight:0,maxHeight:90,minHeight:90,borderRadius:10,border:"2px solid lightgrey",padding:9}} placeholder="Add Your Comments ..." onChange={(e)=>{
+                    <textarea style={{height:90,width:"100%",margin:10,marginRight:0,maxHeight:90,minHeight:90,borderRadius:10,border:"2px solid lightgrey",padding:9}} placeholder="Add Your Thoughts Here ..." onChange={(e)=>{
                         setComment({...coment,comment:e.target.value})
                     }}/>
                 </div>

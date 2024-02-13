@@ -30,7 +30,7 @@ export default function EditPost(){
             <div class="parentDiv">
                 <div class="containerForEdit">
                     {/* <div class="brand-logo"></div> */}
-                    <div class="brand-title">Edit Blog Here..</div>
+                    <div class="brand-title">Edit Blog Here !</div>
                     <div class="inputsForEdit">
                         <label>Title</label>
                         <input type="text" value={data.title} onChange={(e) => { setData({ ...data, title: e.target.value }) }}/>
@@ -39,7 +39,7 @@ export default function EditPost(){
                         <label>Catagorie</label>
                         <input type="text" value={data.catagories} onChange={(e) => { setData({ ...data, catagories: e.target.value }) }}/>
                         <label>Select File</label>
-                        <input type="file" name="user_image"style={{width:200,backgroundColor:"#f6f5f7"}} onChange={(e)=>{
+                        <input type="file" name="user_image"style={{width:200,backgroundColor:"#f6f5f7",padding:"14px"}} onChange={(e)=>{
                             setData({...data,user_image:e.target.files[0]})
                         }}/>
                         <button type="submit" onClick={() => {

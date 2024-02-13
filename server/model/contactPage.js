@@ -1,20 +1,17 @@
 const mongoose=require('mongoose')
-const commentschema=mongoose.Schema({
+const contectSchema=mongoose.Schema({
     name:{
         type:String,
         required:true,
     },
-    userId:{
+    email:{
         type:String,
         required:true,
     },
-    comment:{
+    discription:{
         type:String,
         required:true
     },
-    date:{
-        type:String,
-    }
 })
 
-module.exports=mongoose.model('comment',commentschema)
+module.exports=mongoose.model('contactDetail',contectSchema)

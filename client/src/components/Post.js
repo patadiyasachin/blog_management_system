@@ -11,27 +11,27 @@ const Post = () => {
         <div className="container-fluid">
             <div className="row">
                 {(() => {
-                if (catagoty=="music") {
+                if (catagoty==="music") {
                     return (
                         <img src="./images/dfff083e4b609cab84f89b7324a4f86c.webp" class="h-50" style={{aspectRatio:4/1,objectFit:"cover"}} alt="loading.."/>
                     )
-                } else if (catagoty=="alltype") {
+                } else if (catagoty==="alltype") {
                     return (
                         <img src="./images/retrosupply-jLwVAUtLOAQ-unsplash (1).jpg" class="h-50" alt="loading.."/>
                     )
-                } else if (catagoty=="movie") {
+                } else if (catagoty==="movie") {
                     return (
                         <img src="./images/skybeam_4k.png" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
                     )
-                } else if (catagoty=="sport") {
+                } else if (catagoty==="sport") {
                     return (
                         <img src="./images/sports-cricket-wallpaper-preview.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
                     )
-                } else if (catagoty=="tech") {
+                } else if (catagoty==="tech") {
                     return (
                         <img src="./images/backlit-blogging-business-coding.jpg" class="h-50" style={{aspectRatio:4/1,objectFit:"cover"}} alt="loading.."/>
                     )
-                } else if (catagoty=="fashion") {
+                } else if (catagoty==="fashion") {
                     return (
                         <img src="./images/360_F_521180377_2iAVJqBQSo3cgKaVp8vMBR8asrC61DoU.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
                     )
@@ -62,6 +62,7 @@ const Post = () => {
                         console.log(username)
                         console.log(catagoty)
                         navigate('/home')
+                        
                     }}>Publish</button>
                 </div>  
             </div>
