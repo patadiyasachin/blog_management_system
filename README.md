@@ -1,1 +1,1 @@
-# blog_management_system
+This project is made when I was in a 4th semester and in this project I have used MERN stack technology and in this project I have commit day to day when add some new features in project. 
