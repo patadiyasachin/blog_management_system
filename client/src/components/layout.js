@@ -21,7 +21,7 @@ export default function Layout() {
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/contact">Contact Me</Link>
+                  <Link class="nav-link" to="/contact" id="contac">Contact Me</Link>
                 </li>
                 <li class="nav nav-underline">
                   <Link
@@ -34,7 +34,7 @@ export default function Layout() {
                       window.location.reload();
                     }}
                   >
-                    LogOut ({JSON.parse(auth).username})
+                    LogOut ({auth?JSON.parse(auth).username:""})
                   </Link>
                 </li>
               </>

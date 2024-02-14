@@ -21,7 +21,10 @@ export default function Home() {
     const len=splt.length-1
     if(e.picture.split('.')[len]==="mp4"){
       isVedio=true
+    }else{
+      isVedio=false
     }
+    console.log("================",isVedio);
     return (
       <>
       <div className="col-4 p-2">

@@ -6,7 +6,10 @@ export default function DetailPost(){
     const [data, setData] = useState({})
     const [getData,setGetData]=useState([])
     const nme=localStorage.getItem('user')
-    const n=JSON.parse(nme).username
+    let n=""
+    if(nme){
+        n=JSON.parse(nme).username
+    }
     const [coment,setComment]=useState({
        name:n,
        userId:id,
