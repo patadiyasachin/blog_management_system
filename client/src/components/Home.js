@@ -1,7 +1,8 @@
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import "../index.css";
 import { useEffect, useState } from "react";
 export default function Home() {
+  const location=useLocation()
   const [data,setData]=useState([])
   const [tempData,setTempData]=useState([])
   const navigate = useNavigate();

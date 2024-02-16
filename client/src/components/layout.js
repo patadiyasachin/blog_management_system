@@ -1,12 +1,20 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import "../index.css";
 export default function Layout() {
+  const location=useLocation()
+  const path=location.pathname;
+  let isContactPage=false;
+  if(path=="/contact" || path=="/select"){
+    isContactPage=true
+  }else{
+    isContactPage=false
+  }
   const navigate = useNavigate();
   const auth = localStorage.getItem("user");
   return (
     <>
       <div className="row clr">
-        <div className="col">
+        <div className="col" style={{display:isContactPage?"none":"block"}}>
           <ul class="nav nav-underline d-flex justify-content-center noneNav">
             {auth ? (
               <>
