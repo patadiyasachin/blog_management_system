@@ -7,6 +7,7 @@ export default function Home() {
   const [tempData,setTempData]=useState([])
   const navigate = useNavigate();
   var isVedio=false
+  var emptyArray=false
   useEffect(() => {
     fetch('http://localhost:3030/getAllPost')
         .then((res) =>{return res.json()})
@@ -39,19 +40,9 @@ export default function Home() {
             </video>
             :<img src={e.picture} class="banner-image"/>
           }
-            {/* <img src={e.picture} class="banner-image"/>
-              <video width="320" height="240" controls>
-              <source src={e.picture} id="imgId" type="video/mp4"/>
-              Your browser does not support the video tag.
-              </video>
-          
-            <video width="320" height="240" controls>
-            <source src={e.picture} id="imgId" type="video/mp4"/>
-            Your browser does not support the video tag.
-            </video> */}
             <h2 className="text-white">{e.title}</h2>
             <p>{e.description}</p>
-            </div>
+            </div>  
             <div class="button-wrapper"> 
               <Link to={`/${e._id}`} class="btn fill">More</Link>
               <Link to={`/editpost/${e._id}`} class="btn fill ms-2">Edit</Link>
@@ -63,28 +54,6 @@ export default function Home() {
           </div>
         </div>
       </>
-        // <div className="col-4 p-2 con">
-        //     <div class="card">
-        //         <img src={e.picture} class="card-img-top setHeightWidth" alt="..." />
-                // <video width="320" height="240" controls>
-                //   <source src={e.picture} type="video/mp4"/>
-                //   <source src={e.picture} type="video/ogg"/>
-                //   Your browser does not support the video tag.
-                // </video>
-        //         <div class="card-body">
-        //             <div class="content">
-        //                 <h5 class="card-title">{e.title}</h5>
-        //                 <p class="card-text">{e.description}</p>
-        //                 <Link to={`/${e._id}`} className="btn btn-primary">More...</Link>
-        //                 <Link to={`/editpost/${e._id}`} className="btn btn-primary ms-1">Edit</Link>
-        //                 <button class="btn btn-primary ms-1" onClick={() => {
-        //                   fetch(`http://localhost:3030/${e._id}`,{ method: "DELETE" })
-        //                   setTempData(data.filter((data)=>{return data._id!===e._id}))
-        //                 }}>Delete</button>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
     )
 })
   return (
