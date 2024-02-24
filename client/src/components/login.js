@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../index.css";
-import { useContext, useState } from "react";
+import {useState} from "react";
 // import { DataContext } from "../contex/DataProvider";
 export default function Login() {
   const [data, setData] = useState({});

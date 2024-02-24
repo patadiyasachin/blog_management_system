@@ -1,11 +1,16 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import "../App.css";
 export default function Contact() {
+  const navigate=useNavigate()
     const [contactDetail,setContactDetail]=useState({})
   return (
     <div class="mainContactDiv">
       <div class="contact-form-container">
         <div class="contact-us">
+          <i class="fa-solid fa-delete-left" style={{color:"white"}} onClick={()=>{
+            navigate('/about')
+          }}></i>
           <div class="contact-header">
             <h1>&#9135;&#9135;&#9135;&#9135;&nbsp;&nbsp;CONTACT US</h1>
           </div>

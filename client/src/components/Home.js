@@ -1,13 +1,12 @@
-import { Link, useLocation, useNavigate} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion"
 import "../index.css";
 import { useEffect, useState } from "react";
 export default function Home() {
-  const location=useLocation()
   const [data,setData]=useState([])
   const [tempData,setTempData]=useState([])
   const navigate = useNavigate();
   var isVedio=false
-  var emptyArray=false
   useEffect(() => {
     fetch('http://localhost:3030/getAllPost')
         .then((res) =>{return res.json()})
@@ -29,8 +28,9 @@ export default function Home() {
     console.log("================",isVedio);
     return (
       <>
-      <div className="col-4 p-2">
-        <div class="container">
+      <motion.div layout animate={{opacity:1}} initial={{opacity:1}} className="col-4 p-2">
+        <motion.div layout animate={{opacity:1}} initial={{opacity:1}} class="container">
+          <AnimatePresence>
           <div class="wrapper">
           {
             isVedio?
@@ -38,7 +38,7 @@ export default function Home() {
             <source src={e.picture} type="video/mp4"/>
             Your browser does not support the video tag.
             </video>
-            :<img src={e.picture} class="banner-image"/>
+            :<img src={e.picture} class="banner-image" alt="loading.."/>
           }
             <h2 className="text-white">{e.title}</h2>
             <p>{e.description}</p>
@@ -51,8 +51,9 @@ export default function Home() {
                   setTempData(data.filter((data)=>{return data._id!==e._id}))
               }}>Delete</button>
             </div>
-          </div>
-        </div>
+            </AnimatePresence>
+          </motion.div>
+        </motion.div>
       </>
     )
 })
@@ -123,7 +124,7 @@ export default function Home() {
                   }}>Movies</td>
                 </tr>
                 <tr>
-                  <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7",transition:"1s"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="sport"}))
                     console.log(data)
                   }}>Sports</td>

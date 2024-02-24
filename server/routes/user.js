@@ -115,9 +115,9 @@ router.delete('/:id',async(req,res)=>{
   try{
     const data=await addpost.deleteOne({_id:req.params.id})
     if(data){
-      res.send(data)
+      return res.send(data)
     }
-    res.send("Data not deleted successfully ")
+    return res.send("Data not deleted successfully ")
   }catch(error){
     console.log(error)
   }

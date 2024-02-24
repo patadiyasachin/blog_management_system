@@ -41,7 +41,7 @@ export default function DetailPost(){
             headers: { "Content-Type": "application/json" },
         })
     }
-
+    
     function getAllComment(){
         fetch(`http://localhost:3030/getCmnt/${id}`)
         .then((res) => { return res.json() })
@@ -51,6 +51,10 @@ export default function DetailPost(){
         })
         console.log(".....",getData);
     }
+
+    useEffect(()=>{
+        getAllComment()
+    },[])
 
     const formatedComment=getData.map((d)=>{
         return(

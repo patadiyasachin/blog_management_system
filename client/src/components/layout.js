@@ -4,7 +4,7 @@ export default function Layout() {
   const location=useLocation()
   const path=location.pathname;
   let isContactPage=false;
-  if(path=="/contact" || path=="/select"){
+  if(path==="/contact" || path==="/select"){
     isContactPage=true
   }else{
     isContactPage=false
@@ -15,6 +15,7 @@ export default function Layout() {
     <>
       <div className="row clr">
         <div className="col" style={{display:isContactPage?"none":"block"}}>
+          
           <ul class="nav nav-underline d-flex justify-content-center noneNav">
             {auth ? (
               <>
