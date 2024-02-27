@@ -42,19 +42,25 @@ export default function Login() {
                           method: "POST",
                           body: JSON.stringify(data),
                           headers: { "Content-Type": "application/json" },
-                        }).then((res) => {
+                        })
+                        .then((res)=>{
+                          if(res.ok){
+                            return res.json()
+                          }
+                        })
+                        .then((res) => {
                           console.log("==================",res);
-                          if (res.ok) {
-                            console.log("data=",res.data)
+                            console.log("data=",res.d)
                             console.log("res=",res)
-                            setData(res)
+                            setData(res.d)
                             localStorage.setItem("user",JSON.stringify(data))
+                            localStorage.setItem("token",res.token);  
                             navigate("/home");
                             window.location.reload()
-                          } else {
-                            document.getElementById("printDiv").innerHTML =
-                              "Invalid data !!";
-                          }
+                          // else {
+                          //   document.getElementById("printDiv").innerHTML =
+                          //     "Invalid data !!";
+                          // }
                         })
                       : (document.getElementById("printDiv").innerHTML =
                           "Enter all fields first !!");

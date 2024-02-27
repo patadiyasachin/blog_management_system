@@ -12,6 +12,7 @@ import DetailPost from "./components/DetailPost";
 import EditPost from "./components/EditPost";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import UserProfile from "./components/userProfile";
 // import DataProvider from "./contex/DataProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -41,6 +42,7 @@ root.render(
                 <Route path="/sport" element={<Post/>}></Route>
                 <Route path="/tech" element={<Post/>}></Route>
                 <Route path="/fashion" element={<Post/>}></Route>
+                <Route path="/userprofile" element={<UserProfile/>}></Route>
                 </>
               :
                 <>

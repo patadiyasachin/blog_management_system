@@ -32,6 +32,9 @@ export default function Layout() {
                 <li class="nav-item">
                   <Link class="nav-link" to="/contact" id="contac">Contact Me</Link>
                 </li>
+                <li class="nav-item">
+                  <Link class="nav-link" to="/userprofile" id="contac">Profile</Link>
+                </li>
                 <li class="nav nav-underline">
                   <Link
                     class="nav-link"
@@ -51,7 +54,7 @@ export default function Layout() {
               <>
                 <li class="nav-item">
                   <Link class="nav-link" to="/login">
-                    Login
+                    Create Account
                   </Link>
                 </li>
               </>

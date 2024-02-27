@@ -13,6 +13,21 @@ const userSchema=mongoose.Schema({
         type:String,
         require:true,
         unique:true
+    },
+
+    
+    role:{
+        type:String,
+        require:true
+    },
+    phoneNo:{
+        type:Number,
+        require:true,
+        unique:true
+    },
+    about:{
+        type:String,
+        require:true
     }
 })
 

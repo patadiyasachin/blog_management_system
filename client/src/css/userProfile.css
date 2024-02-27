@@ -1,0 +1,140 @@
+/* body {
+    background-color: #f9f9fa
+} */
+
+#page-content .padding {
+    padding: 3rem !important
+}
+
+#page-content .user-card-full {
+    overflow: hidden;
+}
+
+#page-content .card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+#page-content .m-r-0 {
+    margin-right: 0px;
+}
+
+#page-content .m-l-0 {
+    margin-left: 0px;
+}
+
+#page-content .user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+}
+
+#page-content .bg-c-lite-green {
+        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+    background: linear-gradient(to right, #ee5a6f, #f29263);
+}
+
+#page-content .user-profile {
+    padding: 20px 0;
+}
+
+#page-content .card-block {
+    padding: 1.25rem;
+}
+
+#page-content .m-b-25 {
+    margin-bottom: 25px;
+}
+
+#page-content .img-radius {
+    border-radius: 5px;
+}
+
+#page-content h6 {
+    font-size: 14px;
+}
+
+#page-content .card .card-block p {
+    line-height: 25px;
+}
+
+@media only screen and (min-width: 1400px){
+p {
+    font-size: 14px;   
+}
+}
+
+#page-content .card-block {
+    padding: 3rem;
+}
+
+#page-content .b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#page-content .m-b-20 {
+    margin-bottom: 20px;
+}
+
+#page-content .p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+#page-content .card .card-block p {
+    line-height: 25px;
+}
+
+#page-content .m-b-10 {
+    margin-bottom: 10px;
+}
+
+#page-content .text-muted {
+    color: #919aa3 !important;
+}
+
+#page-content .b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#page-content .f-w-600 {
+    font-weight: 600;
+}
+
+#page-content .m-b-20 {
+    margin-bottom: 20px;
+}
+
+#page-content .m-t-40 {
+    margin-top: 20px;
+}
+
+#page-content .p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+#page-content .m-b-10 {
+    margin-bottom: 10px;
+}
+
+#page-content .m-t-40 {
+    margin-top: 20px;
+}
+
+#page-content .user-card-full .social-link li {
+    display: inline-block;
+}
+
+#page-content .user-card-full .social-link li a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.myDiv{
+    width: 100%;
+}
+
+
+

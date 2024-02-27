@@ -10,53 +10,81 @@ const moment = require('moment');
 const uplodToCloudinary = require("../middlewear/cloudinery");
 const comment = require("../model/comment");
 const contactPage=require("../model/contactPage")
+const userLogin = require('../middlewear/userLogin');
 
 router.post("/signup", async (req, res) => {
-  const data = new user();
-  data.name = req.body.name;
-  data.username = req.body.username;
-  data.password = req.body.password;
-  const d = await data.save();
-
-  const paylod = {
-    id: d._id,
-  };
-  const token = jwt.sign(paylod, sec_key);
-  res.status(200).json(d);
+  try {
+    console.warn(req.body);
+    const data = new user();
+    data.name = req.body.name;
+    data.username = req.body.username;
+    data.password = req.body.password;
+    data.role=req.body.role;
+    data.phoneNo=req.body.phoneNo
+    data.about=req.body.about
+    const d = await data.save();
+    console.log(".......................",d);
+    const paylod = {
+      id: data._id,
+    };
+    const token = jwt.sign(paylod, sec_key);
+    res.status(200).json({d,token});
+  } catch (error) {
+    return res.status(500).send("something went wrong !!")
+  }
 });
 
 router.post("/login", async (req, res) => {
-  const data = await user.findOne({
-    username: req.body.username,
-    password: req.body.password,
-  });
-  console.log(data);
-  if (req.body.username !== "" && req.body.password !== "") {
-    if (data) {
-      const paylod = {
-        id: data._id,
-      };
-
-      const token = jwt.sign(paylod, sec_key);
-      res.status(200).json(data);
-      //   const accessToken = jwt.sign(
-      //     data.toJSON(),
-      //     process.env.ACCESS_SECRET_KEY,
-      //     { expiresIn: "15m" }
-      //   );
-      //   const refreshToken = jwt.sign(
-      //     data.toJSON(),
-      //     process.env.REFRESH_SECRET_KEY
-      //   );
-      //   const newToken = new Token({ token: refreshToken });
-      //   await newToken.save();
+  try {
+    const d = await user.findOne({
+      username: req.body.username,
+      password: req.body.password,
+    });
+    console.log(d);
+    if (req.body.username !== "" && req.body.password !== "") {
+      if (d) {
+        const paylod = {
+          id: d._id,
+        };
+  
+        const token = jwt.sign(paylod, sec_key);
+        res.status(200).json({d,token});
+        //   const accessToken = jwt.sign(
+        //     data.toJSON(),
+        //     process.env.ACCESS_SECRET_KEY,
+        //     { expiresIn: "15m" }
+        //   );
+        //   const refreshToken = jwt.sign(
+        //     data.toJSON(),
+        //     process.env.REFRESH_SECRET_KEY
+        //   );
+        //   const newToken = new Token({ token: refreshToken });
+        //   await newToken.save();
+      } else {
+        res.status(401).send("Data not found !!");
+      }
     } else {
-      res.status(401).send("Data not found !!");
+      res.status(401).send("plese enter all fields first !!");
     }
-  } else {
-    res.status(401).send("plese enter all fields first !!");
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("can not login")
   }
 });
+
+router.get("/getUserDetails/:username",async(req,res)=>{
+  try {
+    const newUser=new user()
+    const data=await newUser.findOne(req.params.username)
+    if(data){
+      res.send(data)
+    }else{
+      res.send("data not found!!")
+    }
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 router.post('/addpost',upload.single('user_image'),async(req,res)=>{
   try{
@@ -204,4 +232,5 @@ router.post('/contactpage',async(req,res)=>{
     console.log(error);
   }
 })  
+
 module.exports = router;

@@ -107,9 +107,9 @@ export default function DetailPost(){
                 </div>
             </div>
             <div className="row">
-                <h1 className='text-center'>{data.title}</h1>
-                <h3>{data.description}</h3>
-                <h3>{data.catagories}</h3>
+                <h1 className='text-center'>Title : {data.title}</h1>
+                <h3>Discription : {data.description}</h3>
+                <h3>Catagory : {data.catagories}</h3>
             </div>
 
             <div className='row'>
