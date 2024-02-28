@@ -49,12 +49,14 @@ export default function Login() {
                           }
                         })
                         .then((res) => {
-                          console.log("==================",res);
+                            console.log("==================",res);
                             console.log("data=",res.d)
-                            console.log("res=",res)
+                            console.log("res=",res.d._id)
                             setData(res.d)
                             localStorage.setItem("user",JSON.stringify(data))
-                            localStorage.setItem("token",res.token);  
+                            localStorage.setItem("token",res.token);
+                            console.warn(localStorage.setItem("userid",res.d._id));  
+                            console.log("data is ",data);
                             navigate("/home");
                             window.location.reload()
                           // else {

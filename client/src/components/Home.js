@@ -6,16 +6,21 @@ export default function Home() {
   const [data,setData]=useState([])
   const [tempData,setTempData]=useState([])
   const navigate = useNavigate();
+  const uId=localStorage.getItem("userid")
   var isVedio=false
   useEffect(() => {
-    fetch('http://localhost:3030/getAllPost')
-        .then((res) =>{return res.json()})
-        .then((res) => {
-          setData(res)
-          setTempData(res)
-          console.log(data)
-        })
+    fetch(`http://localhost:3030/allPost/${uId}`)
+    .then((res) =>{return res.json()})
+    .then((res) => {
+      setData(res)
+      setTempData(res)
+      console.log(data)
+    })
   }, [])
+  
+  // const myStyle=()=>{
+  //   document.getElementById('sportType').style.transition="smooth"
+  // }
   
   var formatedPost = tempData.map((e) => {
     const splt=e.picture.split('.')
@@ -26,9 +31,11 @@ export default function Home() {
       isVedio=false
     }
     console.log("================",isVedio);
+    console.log("================",tempData.length);
     return (
       <>
-      <motion.div layout animate={{opacity:1}} initial={{opacity:1}} className="col-4 p-2">
+      {
+        <motion.div layout animate={{opacity:1}} initial={{opacity:1}} className="col-4 p-2">
         <motion.div layout animate={{opacity:1}} initial={{opacity:1}} class="container">
           <AnimatePresence>
           <div class="wrapper">
@@ -54,6 +61,7 @@ export default function Home() {
             </AnimatePresence>
           </motion.div>
         </motion.div>
+      }
       </>
     )
 })
@@ -124,7 +132,7 @@ export default function Home() {
                   }}>Movies</td>
                 </tr>
                 <tr>
-                  <td style={{backgroundColor:"#f6f5f7",transition:"1s"}} onClick={()=>{
+                  <td style={{backgroundColor:"#f6f5f7"}}  id="sportType" onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="sport"}))
                     console.log(data)
                   }}>Sports</td>
@@ -146,8 +154,11 @@ export default function Home() {
           </div>
         </div>
         <div className="col">
-          <div className="row">
-            {formatedPost}
+          <div className="row"> 
+              {formatedPost}
+          </div>
+          <div id="dataNotFoundDiv" style={{textAlign:"center"}}>
+                  
           </div>
         </div>
       </div>

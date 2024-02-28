@@ -1,18 +1,42 @@
-import { useState } from "react";
+import { useState,useRef} from "react";
 import { useNavigate } from "react-router-dom";
 import "../index.css";
 export default function Signup() {
   const navigate = useNavigate();
   const [data, setData] = useState({});
 
+  const fileInputRef = useRef(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImage(URL.createObjectURL(file));
+      console.warn("file is ",file);
+      // Handle the selected file
+    }
+  };
+
   return (
     <>
       <div class="row">
         <div class="col mainDiv">
-          <div class="container" id="container">
+          <div class="container" id="container" style={{ height: "100vh" }}>
             <div class="form-container sign-in-container">
               <form>
-                <h2 style={{fontWeight:"bolder"}}>Sign Up</h2>
+                <h2 style={{ fontWeight: "bolder" }}>Sign Up</h2>
+                <div className="userImg" onClick={handleClick}></div>
+                {selectedImage && <img src={selectedImage} alt="select" className="userImg"/>}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  onChange={handleFileChange}/>
                 <input
                   type="text"
                   placeholder="name"
@@ -58,6 +82,7 @@ export default function Signup() {
                 <button
                   style={{ marginTop: 9 }}
                   onClick={(e) => {
+                    let printErr=document.getElementById("printDiv")
                     e.preventDefault()
                     // const n = document.getElementById("name").value;
                     // const u = document.getElementById("uname").value;
@@ -65,31 +90,32 @@ export default function Signup() {
                     // const m = document.getElementById("monumber").value;
                     // const a = document.getElementById("about").value;
                     // n !== "" && u !== "" && p !== "" && m !== "" && a !== ""
-                      fetch("http://localhost:3030/signup", {
-                          method: "POST",
-                          body: JSON.stringify(data),
-                          headers: { "Content-Type": "application/json" },
-                        })
-                        .then((res)=>{
-                          if(res.ok){
-                            return res.json() 
-                          }else{
-                            document.getElementById("printDiv").innerHTML ="Enter all fields first !!"
-                          }
-                        })
-                        .then((res) => {
-                            setData(res.d);
-                            console.log("=====",res);
-                            console.log("=====",data);
-                            localStorage.setItem("signupuser", JSON.stringify(data));
-                            localStorage.setItem("token",res.token);
-                            navigate("/login");
-                        })
+                    fetch("http://localhost:3030/signup", {
+                      method: "POST",
+                      body: JSON.stringify(data),
+                      headers: { "Content-Type": "application/json" },
+                    })
+                      .then((res) => {
+                        if(res.ok){
+                          return res.json()
+                        }else{
+                          printErr.innerHTML = "Enter all fields first !!"
+                        }
+                      })
+                      .then((res) => {
+                        console.log(res);
+                          setData(res.d);
+                          console.log("=====", res);
+                          console.log("=====", data);
+                          localStorage.setItem("signupuser", JSON.stringify(data));
+                          localStorage.setItem("token", res.token);
+                          navigate("/login");
+                      })
                   }}
                 >
                   Sign Up
                 </button>
-                <div id="printDiv"></div>
+                <div id="printDiv" style={{height:"20vh",margin:"0",marginTop:"10px"}}></div>
               </form>
             </div>
             <div class="overlay-container">

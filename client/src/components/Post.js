@@ -7,6 +7,7 @@ const Post = () => {
     const [data,setData]=useState({})
     const username=JSON.parse(localStorage.getItem('user')).username
     const catagoty=localStorage.getItem('type')
+    const uId=localStorage.getItem('userid')
   return (
         <div className="container-fluid">
             <div className="row">
@@ -52,6 +53,7 @@ const Post = () => {
                 <div className="col-4">
                     <button className="mt-2" onClick={()=>{
                         const formData=new FormData()
+                        formData.append("userid",uId)
                         formData.append("user_image",data.user_image)
                         formData.append("title",data.title)
                         formData.append("description",data.description)
@@ -62,7 +64,6 @@ const Post = () => {
                         console.log(username)
                         console.log(catagoty)
                         navigate('/home')
-                        
                     }}>Publish</button>
                 </div>  
             </div>

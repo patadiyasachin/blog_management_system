@@ -1,6 +1,10 @@
 const mongoose=require('mongoose')
 
 const postSchema=mongoose.Schema({
+    userid:{
+        type:String,
+        require:true
+    },
     title:{
       type:String,
       required:true,

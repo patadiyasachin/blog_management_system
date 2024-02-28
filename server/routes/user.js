@@ -74,10 +74,9 @@ router.post("/login", async (req, res) => {
 
 router.get("/getUserDetails/:username",async(req,res)=>{
   try {
-    const newUser=new user()
-    const data=await newUser.findOne(req.params.username)
+    const data=await user.findOne({username:req.params.username})
     if(data){
-      res.send(data)
+      res.status(200).send(data)
     }else{
       res.send("data not found!!")
     }
@@ -91,6 +90,7 @@ router.post('/addpost',upload.single('user_image'),async(req,res)=>{
     const newPost=new addpost()
     console.log(req.file)
     const result = await uplodToCloudinary(req.file.path);
+    newPost.userid=req.body.userid
     newPost.title=req.body.title
     newPost.description=req.body.description
     newPost.username=req.body.username
@@ -110,6 +110,19 @@ router.get('/getAllPost',async(req,res)=>{
     res.status(200).send(data)
   }catch(error){
     console.log(error);
+  }
+})
+
+router.get('/allPost/:userId',async(req,res)=>{
+  try {
+    const data=await addpost.find({userid:req.params.userId})
+    if(data){
+      return res.status(200).send(data)
+    }else{
+      return res.status(501).send("Data not found !!")
+    }
+  } catch (error) {
+    console.log("error is ",error);
   }
 })
 

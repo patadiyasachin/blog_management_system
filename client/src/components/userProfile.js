@@ -1,10 +1,20 @@
+import { useEffect, useState } from 'react'
 import '../css/userProfile.css'
 export default function UserProfile() {
-    let userData=localStorage.getItem('signupuser')
+    const [userDetail,setUserDetail]=useState({})
+    let userData=localStorage.getItem('user')
     let uname=JSON.parse(userData).username
-    let name=JSON.parse(userData).name
-    let moNumber=JSON.parse(userData).phoneNo
-    let about=JSON.parse(userData).about
+    useEffect(()=>{
+        fetch(`http://localhost:3030/getUserDetails/${uname}`)
+        .then((res)=>{
+            return res.json()
+        })
+        .then((res)=>{
+            setUserDetail(res)
+        })
+    },[])
+
+    console.warn("user detail is",userDetail)
     return (
         <>
             <div class="page-content page-container" id="page-content">
@@ -18,7 +28,7 @@ export default function UserProfile() {
                                             <div class="m-b-25">
                                                 <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image" style={{width:"20vh",height:"20vh"}}/>
                                             </div>
-                                            <h6 class="f-w-600">{name}</h6>
+                                            <h6 class="f-w-600">{userDetail.name?userDetail.name:"----"}</h6>
                                             <p>Role</p>
                                             <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                         </div>
@@ -29,11 +39,11 @@ export default function UserProfile() {
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <h5 class="m-b-10 f-w-600">UserName</h5>
-                                                    <h6 class="text-muted f-w-400">{uname}</h6>
+                                                    <h6 class="text-muted f-w-400">{userDetail.username?userDetail.username:"----"}</h6>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <h5 class="m-b-10 f-w-600">Phone</h5>
-                                                    <h6 class="text-muted f-w-400">{moNumber}</h6>
+                                                    <h6 class="text-muted f-w-400">{userDetail.phoneNo?userDetail.phoneNo:"----"}</h6>
                                                 </div>
                                             </div>
                                             <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600"></h6>
@@ -44,7 +54,7 @@ export default function UserProfile() {
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <h5 class="m-b-10 f-w-600">About Me</h5>
-                                                    <h6 class="text-muted f-w-400">{about}</h6>
+                                                    <h6 class="text-muted f-w-400">{userDetail.about?userDetail.about:"----"}</h6>
                                                 </div>
                                             </div>
                                             <ul class="social-link list-unstyled m-t-40 m-b-10">
