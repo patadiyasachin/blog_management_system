@@ -8,19 +8,16 @@ export default function Contact() {
     <div class="mainContactDiv">
       <div class="contact-form-container">
         <div class="contact-us">
-          <i class="fa-solid fa-delete-left" style={{color:"white"}} onClick={()=>{
+          {/* <i class="fa-solid fa-delete-left" style={{color:"white"}} onClick={()=>{
             navigate('/about')
-          }}></i>
+          }}></i> */}
           <div class="contact-header">
             <h1>&#9135;&#9135;&#9135;&#9135;&nbsp;&nbsp;CONTACT US</h1>
           </div>
           <div class="social-bar">
             <ul>
               <li>
-                <i class="fab fa-facebook-f"></i>
-              </li>
-              <li>
-                <i class="fab fa-twitter"></i>
+                <i class="fa-brands fa-square-github"></i>
               </li>
               <li>
                 <i class="fab fa-instagram"></i>

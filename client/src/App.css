@@ -254,7 +254,7 @@ body {
 .social-bar {
   position: absolute;
   bottom: 20px;
-  left: 75px;
+  left: 70px;
   z-index: 1;
   width: 100px;
 }
@@ -268,7 +268,6 @@ body {
   height: 25px;
   line-height: 25px;
   text-align: center;
-  margin-right: -4px;
   font-size: 1.2rem;
 }
 
@@ -361,7 +360,7 @@ form button {
 /* Layout Stuff */
 .mainContactDiv{
   /* background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2042508-jpeg.jpg"); */
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
   position: relative;
   background-size: cover;

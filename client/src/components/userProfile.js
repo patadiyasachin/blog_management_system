@@ -25,11 +25,11 @@ export default function UserProfile() {
                                 <div class="row m-l-0 m-r-0">
                                     <div class="col-sm-4 bg-c-lite-green user-profile">
                                         <div class="card-block text-center text-white" style={{height:"60vh"}}>
-                                            <div class="m-b-25">
-                                                <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image" style={{width:"20vh",height:"20vh"}}/>
+                                            <div class="m-b-25" style={{width:"20vh",height:"20vh"}}>
+                                                <img src={userDetail.userImage?userDetail.userImage:"https://img.icons8.com/bubbles/100/000000/user.png"} alt="loading..." class="img-radius" style={{width:"20vh",height:"20vh",objectFit:"cover",borderRadius:"50%"}}/>
                                             </div>
                                             <h6 class="f-w-600">{userDetail.name?userDetail.name:"----"}</h6>
-                                            <p>Role</p>
+                                            <p>User</p>
                                             <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                         </div>
                                     </div>

@@ -4,7 +4,7 @@ export default function Layout() {
   const location=useLocation()
   const path=location.pathname;
   let isContactPage=false;
-  if(path==="/contact" || path==="/select"){
+  if(path==="/select" || path==="/signup" || path==="/login"){
     isContactPage=true
   }else{
     isContactPage=false

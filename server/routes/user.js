@@ -12,16 +12,18 @@ const comment = require("../model/comment");
 const contactPage=require("../model/contactPage")
 const userLogin = require('../middlewear/userLogin');
 
-router.post("/signup", async (req, res) => {
+router.post("/signup", upload.single('user_signup_image'),async (req, res) => {
   try {
     console.warn(req.body);
     const data = new user();
+    const result = await uplodToCloudinary(req.file.path);
     data.name = req.body.name;
     data.username = req.body.username;
     data.password = req.body.password;
     data.role=req.body.role;
     data.phoneNo=req.body.phoneNo
     data.about=req.body.about
+    data.userImage=result
     const d = await data.save();
     console.log(".......................",d);
     const paylod = {

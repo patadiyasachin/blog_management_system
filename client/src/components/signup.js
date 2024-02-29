@@ -1,5 +1,6 @@
 import { useState,useRef} from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 import "../index.css";
 export default function Signup() {
   const navigate = useNavigate();
@@ -17,10 +18,12 @@ export default function Signup() {
     if (file) {
       setSelectedImage(URL.createObjectURL(file));
       console.warn("file is ",file);
+      console.log("-------",URL.createObjectURL(file));
+      setData({...data,user_signup_image:file})
       // Handle the selected file
     }
   };
-
+  
   return (
     <>
       <div class="row">
@@ -29,13 +32,12 @@ export default function Signup() {
             <div class="form-container sign-in-container">
               <form>
                 <h2 style={{ fontWeight: "bolder" }}>Sign Up</h2>
-                <div className="userImg" onClick={handleClick}></div>
-                {selectedImage && <img src={selectedImage} alt="select" className="userImg"/>}
+                <img name="user_signup_image" alt="loading.." src={selectedImage==null?"https://cdn.pixabay.com/photo/2017/08/16/00/29/add-person-2646097_1280.png":selectedImage} onClick={handleClick} style={{width:"100px",height:"100px",borderRadius:"50%",boxShadow:"0px 0px 7px black"}}/>
                 <input
                   ref={fileInputRef}
                   type="file"
                   accept="image/*"
-                  style={{ display: 'none' }}
+                  hidden="true"
                   onChange={handleFileChange}/>
                 <input
                   type="text"
@@ -81,36 +83,62 @@ export default function Signup() {
                 />
                 <button
                   style={{ marginTop: 9 }}
-                  onClick={(e) => {
-                    let printErr=document.getElementById("printDiv")
+                  onClick={async (e) => {
                     e.preventDefault()
+                    console.log("Data is ",data);
+                    let printErr=document.getElementById("printDiv")
+                    const formData=new FormData()
+                    formData.append("name",data.name)
+                    formData.append("username",data.username)
+                    formData.append("password",data.password)
+                    formData.append("user_signup_image",data.user_signup_image)
+                    formData.append("phoneNo",data.phoneNo)
+                    formData.append("about",data.about)
+                    axios.post('http://localhost:3030/signup',formData)
+
+                    .then((response) => {
+                      console.log("response is",response);
+                      if (response.status===200){
+                          console.log("response data is",response.data);
+                          setData(response.d);
+                          console.log("=====", data);
+                          localStorage.setItem("signupuser", JSON.stringify(data));
+                          localStorage.setItem("token", response.data.token);
+                          navigate("/login");
+                      } else {
+                         printErr.innerHTML = "Enter all fields first !!"
+                      }
+                    })
+
                     // const n = document.getElementById("name").value;
                     // const u = document.getElementById("uname").value;
                     // const p = document.getElementById("pwd").value;
                     // const m = document.getElementById("monumber").value;
                     // const a = document.getElementById("about").value;
                     // n !== "" && u !== "" && p !== "" && m !== "" && a !== ""
-                    fetch("http://localhost:3030/signup", {
-                      method: "POST",
-                      body: JSON.stringify(data),
-                      headers: { "Content-Type": "application/json" },
-                    })
-                      .then((res) => {
-                        if(res.ok){
-                          return res.json()
-                        }else{
-                          printErr.innerHTML = "Enter all fields first !!"
-                        }
-                      })
-                      .then((res) => {
-                        console.log(res);
-                          setData(res.d);
-                          console.log("=====", res);
-                          console.log("=====", data);
-                          localStorage.setItem("signupuser", JSON.stringify(data));
-                          localStorage.setItem("token", res.token);
-                          navigate("/login");
-                      })
+                  
+                    // fetch("http://localhost:3030/signup", {
+                    //   method: "POST",
+                    //   body: JSON.stringify(data),
+                    //   headers: { "Content-Type": "application/json" },
+                    // })
+
+                    //   .then((res) => {
+                    //     if(res.ok){
+                    //       return res.json()
+                    //     }else{
+                    //       printErr.innerHTML = "Enter all fields first !!"
+                    //     }
+                    //   })
+                    //   .then((res) => {
+                    //     console.log(res);
+                    //       setData(res.d);
+                    //       console.log("=====", res);
+                    //       console.log("=====", data);
+                    //       localStorage.setItem("signupuser", JSON.stringify(data));
+                    //       localStorage.setItem("token", res.token);
+                    //       navigate("/login");
+                    //   })
                   }}
                 >
                   Sign Up

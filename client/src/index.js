@@ -13,6 +13,7 @@ import EditPost from "./components/EditPost";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import UserProfile from "./components/userProfile";
+import HomePage from "./components/HomePage";
 // import DataProvider from "./contex/DataProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,6 +22,7 @@ root.render(
   <>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<HomePage/>}></Route>
         <Route path="/" element={<Layout />}>
           {/* <DataProvider> */}
           {/* </DataProvider> */}
@@ -50,8 +52,6 @@ root.render(
                 <Route path="/signup" element={<SignUp />}></Route>
                 </>
             }
-
-           
         </Route>
       </Routes>
     </BrowserRouter>

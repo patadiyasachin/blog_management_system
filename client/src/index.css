@@ -34,7 +34,7 @@ code {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	height: 90vh;
+	height: 110vh;
 	margin: -20px 0 50px;
 }
 
@@ -106,7 +106,7 @@ form {
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 50px;
-	height: 110%;
+	height: 120%;
 	text-align: center;
 }
 
@@ -313,15 +313,6 @@ footer a {
 	width: 50%;
 	object-fit: cover;
 }
-
-.userImg{
-	background-color: blue;
-	height: 90px;
-	width: 95px;
-	border-radius:70px;
-	object-fit: contain;
-}
-
 
 /* ==================================== */
 

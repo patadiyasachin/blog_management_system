@@ -41,7 +41,7 @@ const Post = () => {
             </div>
         <div className="row">
                 <div className="col-2">
-                    <input type="file" name="user_image"style={{width:200,backgroundColor:"white"}} onChange={(e)=>{
+                    <input type="file" name="user_image" style={{width:200,backgroundColor:"white"}} onChange={(e)=>{
                         setData({...data,user_image:e.target.files[0]})
                     }}/>
                 </div>
