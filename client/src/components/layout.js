@@ -21,19 +21,22 @@ export default function Layout() {
               <>
                 <li class="nav-item">
                   <Link class="nav-link" to="/home">
-                    Home
+                    Home <i class="fa-solid fa-house"></i>
                   </Link>
+                  
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/about">
-                    About
+                    About <i class="fa-solid fa-info"></i>
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/contact" id="contac">Contact Me</Link>
+                  <Link class="nav-link" to="/contact" id="contac">
+                    Contact Me <i class="fa-solid fa-phone"></i>
+                  </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/userprofile" id="contac">Profile</Link>
+                  <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user"></i></Link>
                 </li>
                 <li class="nav nav-underline">
                   <Link
@@ -46,7 +49,7 @@ export default function Layout() {
                       window.location.reload();
                     }}
                   >
-                    LogOut ({auth?JSON.parse(auth).username:""})
+                    LogOut ({auth?JSON.parse(auth).username:""}) <i class="fa-solid fa-right-from-bracket"></i>
                   </Link>
                 </li>
               </>
