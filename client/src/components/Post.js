@@ -51,7 +51,7 @@ const Post = () => {
                     }}/>
                 </div>
                 <div className="col-4">
-                    <button className="mt-2" onClick={()=>{
+                    <button className="mt-2" onClick={async()=>{
                         const formData=new FormData()
                         formData.append("userid",uId)
                         formData.append("user_image",data.user_image)
@@ -59,7 +59,7 @@ const Post = () => {
                         formData.append("description",data.description)
                         formData.append("username",username)
                         formData.append("catagories",catagoty)
-                        axios.post('http://localhost:3030/addpost',formData)
+                        await axios.post('http://localhost:3030/addpost',formData)
                         console.log(data)
                         console.log(username)
                         console.log(catagoty)

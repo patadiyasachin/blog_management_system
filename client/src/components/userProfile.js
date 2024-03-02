@@ -4,6 +4,7 @@ export default function UserProfile() {
     const [userDetail,setUserDetail]=useState({})
     let userData=localStorage.getItem('user')
     let uname=JSON.parse(userData).username
+    let total_blog=localStorage.getItem("total_blog")
     useEffect(()=>{
         fetch(`http://localhost:3030/getUserDetails/${uname}`)
         .then((res)=>{
@@ -50,7 +51,7 @@ export default function UserProfile() {
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <h5 class="m-b-10 f-w-600">Total Blog</h5>
-                                                    <h6 class="text-muted f-w-400">5 (static)</h6>
+                                                    <h6 class="text-muted f-w-400">{total_blog}</h6>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <h5 class="m-b-10 f-w-600">About Me</h5>

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Login from "./components/login";
 import SignUp from "./components/signup";
 import Layout from "./components/layout";
@@ -15,7 +15,6 @@ import Contact from "./components/Contact";
 import UserProfile from "./components/userProfile";
 import HomePage from "./components/HomePage";
 // import DataProvider from "./contex/DataProvider";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const auth = localStorage.getItem("user");
 root.render(

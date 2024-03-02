@@ -19,7 +19,7 @@ export default function Layout() {
           <ul class="nav nav-underline d-flex justify-content-center noneNav">
             {auth ? (
               <>
-                <li class="nav-item">
+                <li class="nav-item" style={{marginLeft:"27rem"}}>
                   <Link class="nav-link" to="/home">
                     Home <i class="fa-solid fa-house"></i>
                   </Link>
@@ -38,7 +38,7 @@ export default function Layout() {
                 <li class="nav-item">
                   <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user"></i></Link>
                 </li>
-                <li class="nav nav-underline">
+                <li class="nav nav-underline" style={{marginLeft:"20rem"}}>
                   <Link
                     class="nav-link"
                     style={{ color: "red" }}

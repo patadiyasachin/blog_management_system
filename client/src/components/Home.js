@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const [data,setData]=useState([])
   const [tempData,setTempData]=useState([])
+  const [len,setLen]=useState(0)
   const navigate = useNavigate();
   const uId=localStorage.getItem("userid")
   var isVedio=false
@@ -22,9 +23,11 @@ export default function Home() {
   //   document.getElementById('sportType').style.transition="smooth"
   // }
   
-  var formatedPost = tempData.map((e) => {
+  var formatedPost = tempData.map((e,index) => {
+    localStorage.setItem("total_blog",index+1)
     const splt=e.picture.split('.')
     const len=splt.length-1
+    console.log("length is ",len);
     if(e.picture.split('.')[len]==="mp4"){
       isVedio=true
     }else{
@@ -117,36 +120,43 @@ export default function Home() {
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="alltype"}))
-                    console.log(tempData)
+                    setLen(tempData.length)
+                    console.log(data,len)
                   }}>All Type</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
-                    setTempData(data.filter((data)=>{return data.catagories==="music"})) 
+                    setTempData(data.filter((data)=>{return data.catagories==="music"}))
+                    setLen(tempData.length)
+                    console.log(data,len);
                   }}>Music</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="movie"}))
-                    console.log(data)
+                    setLen(tempData.length)
+                    console.log(data,len)
                   }}>Movies</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}}  id="sportType" onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="sport"}))
-                    console.log(data)
+                    setLen(tempData.length)
+                    console.log(data,len)
                   }}>Sports</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="tech"}))
-                    console.log(data)
+                    setLen(tempData.length)
+                    console.log(data,len)
                   }}>Tech</td>
                 </tr>
                 <tr>
                   <td style={{backgroundColor:"#f6f5f7"}} onClick={()=>{
                     setTempData(data.filter((data)=>{return data.catagories==="fashion"}))
-                    console.log(data)
+                    setLen(tempData.length)
+                    console.log(data,len)
                   }}>Fashion</td>
                 </tr>
               </tbody>
@@ -157,9 +167,9 @@ export default function Home() {
           <div className="row"> 
               {formatedPost}
           </div>
-          <div id="dataNotFoundDiv" style={{textAlign:"center"}}>
-                  
-          </div>
+            <div id="dataNotFoundDiv" style={{textAlign:"center"}}>
+                {/* Data not found !! */}
+            </div>          
         </div>
       </div>
     </div>
