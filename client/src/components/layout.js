@@ -21,24 +21,24 @@ export default function Layout() {
               <>
                 <li class="nav-item" style={{marginLeft:"27rem"}}>
                   <Link class="nav-link" to="/home">
-                    Home <i class="fa-solid fa-house"></i>
+                    Home <i class="fa-solid fa-house" style={{color:"gray"}}></i>
                   </Link>
                   
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/about">
-                    About <i class="fa-solid fa-info"></i>
+                    About <i class="fa-solid fa-info" style={{color:"gray"}}></i>
                   </Link>
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/contact" id="contac">
-                    Contact Me <i class="fa-solid fa-phone"></i>
+                    Contact Me <i class="fa-solid fa-phone" style={{color:"gray"}}></i>
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user"></i></Link>
+                  <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user" style={{color:"gray"}}></i></Link>
                 </li>
-                <li class="nav nav-underline" style={{marginLeft:"20rem"}}>
+                <li class="nav nav-underline" style={{marginLeft:"20rem",color:"gray"}}>
                   <Link
                     class="nav-link"
                     style={{ color: "red" }}
