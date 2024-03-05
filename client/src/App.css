@@ -45,7 +45,7 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;  
+  align-items: flex-end;  
   background-image:url("../public/images/Peerless+Communications+Blog+page+cover.png");
   background-repeat: no-repeat;
   background-size: cover;

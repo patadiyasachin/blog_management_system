@@ -66,8 +66,13 @@ const Post = () => {
                         navigate('/home')
                     }}>Publish</button>
                 </div>  
+                {/* <div class="text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div> */}
             </div>
-
+                
             <div className="row">
                 <textarea style={{height:90,width:600,margin:20,maxHeight:90,minHeight:90,borderRadius:10,border:"2px solid lightgrey"}} onChange={(e)=>{
                         setData({...data,description:e.target.value})

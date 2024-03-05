@@ -39,8 +39,9 @@ export default function EditPost(){
                         <label>Catagorie</label>
                         <input type="text" value={data.catagories} onChange={(e) => { setData({ ...data, catagories: e.target.value }) }}/>
                         <label>Select File</label>
-                        <input type="file" name="user_image"style={{width:200,backgroundColor:"#f6f5f7",padding:"14px"}} onChange={(e)=>{
+                        <input type="file" id="imgInput" name="user_image"style={{width:200,backgroundColor:"#f6f5f7",padding:"14px"}} onChange={(e)=>{
                             setData({...data,user_image:e.target.files[0]})
+                            console.log(data);
                         }}/>
                         <button type="submit" onClick={() => {
                             editData()
