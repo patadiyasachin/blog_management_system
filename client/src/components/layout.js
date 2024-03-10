@@ -16,29 +16,29 @@ export default function Layout() {
       <div className="row clr">
         <div className="col" style={{display:isContactPage?"none":"block"}}>
           
-          <ul class="nav nav-underline d-flex justify-content-center noneNav">
+          <ul class="nav nav-underline d-flex justify-content-center noneNav lobster-regular">
             {auth ? (
               <>
                 <li class="nav-item" style={{marginLeft:"27rem"}}>
                   <Link class="nav-link" to="/home">
-                    Home <i class="fa-solid fa-house" style={{color:"gray"}}></i>
+                    Home <i class="fa-solid fa-house" style={{color:"rgba(0, 212, 255, 0.9)"}}></i>
                   </Link>
                   
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/about">
-                    About <i class="fa-solid fa-info" style={{color:"gray"}}></i>
+                    About <i class="fa-solid fa-info" style={{color:"rgba(0, 212, 255, 0.9)"}}></i>
                   </Link>
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/contact" id="contac">
-                    Contact Me <i class="fa-solid fa-phone" style={{color:"gray"}}></i>
+                    Contact Me <i class="fa-solid fa-phone" style={{color:"rgba(0, 212, 255, 0.9)"}}></i>
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user" style={{color:"gray"}}></i></Link>
+                  <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user" style={{color:"rgba(0, 212, 255, 0.9)"}}></i></Link>
                 </li>
-                <li class="nav nav-underline" style={{marginLeft:"20rem",color:"gray"}}>
+                <li class="nav nav-underline" style={{marginLeft:"20rem",color:"rgba(0, 212, 255, 0.9)"}}>
                   <Link
                     class="nav-link"
                     style={{ color: "red" }}

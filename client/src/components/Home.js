@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion"
-import "../index.css";
+// import "../index.css";
+import '../css/homepagecard.css'
 import { useEffect, useState } from "react";
 export default function Home() {
   const [data, setData] = useState([])
@@ -38,8 +38,8 @@ export default function Home() {
     return (
       <>
         {
-          <div className="col-4 p-2" data-aos="zoom-in">
-            <div class="container">
+          <div className="col-4 p-2" data-aos="zoom-in" style={{margin:0}}>
+            {/* <div class="container">
               <div class="wrapper">
                 {
                   isVedio ?
@@ -60,7 +60,47 @@ export default function Home() {
                   setTempData(data.filter((data) => { return data._id !== e._id }))
                 }}>Delete</button>
               </div>
-            </div>
+            </div> */}
+
+            {/*=============================== new card ===============================*/}
+
+
+            <ul class="cards">
+              <li>
+                <a href="" class="card">
+                {
+                  isVedio ?
+                    <video width="320" height="240" controls>
+                      <source src={e.picture} type="video/mp4"/>
+                      Your browser does not support the video tag.
+                    </video>
+                    :<img src={e.picture} class="card__image" alt="" style={{height:"50vh"}}/>
+                }
+
+                  <div class="card__overlay">
+                    <div class="card__header">
+                      <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                        <path />
+                      </svg>
+                      <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                      <div class="card__header-text">
+                        <h3 class="card__title">{e.title}</h3>
+                        <span class="card__status">1 hour ago</span>
+                      </div>
+                    </div>
+                    {/* <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p> */}
+                    <div class="button-wrapper" style={{marginLeft:"23px"}}>
+                      <Link to={`/${e._id}`} class="btn fill">More</Link>
+                      <Link to={`/editpost/${e._id}`} class="btn fill ms-2">Edit</Link>
+                      <button class="btn fill m-2" onClick={() => {
+                        fetch(`http://localhost:3030/${e._id}`, { method: "DELETE" })
+                        setTempData(data.filter((data) => { return data._id !== e._id }))
+                      }}>Delete</button>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
           </div>
         }
       </>

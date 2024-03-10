@@ -32,7 +32,7 @@ export default function HomePage() {
                 <div class="card">
                     {
                         isVedio ?
-                            <video controls style={{ height: "44vh" }}>
+                            <video controls style={{ height: "44vh",width:"100%"}}>
                                 <source src={data.picture} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
