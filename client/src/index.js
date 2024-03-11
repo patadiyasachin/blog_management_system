@@ -14,6 +14,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import UserProfile from "./components/userProfile";
 import HomePage from "./components/HomePage";
+import Admin from "./components/Admin";
 // import DataProvider from "./contex/DataProvider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const auth = localStorage.getItem("user");
@@ -35,7 +36,6 @@ root.render(
                 <Route path="/editpost/:id" element={<EditPost/>}></Route>
                 <Route path="/about" element={<About/>}></Route>
                 <Route path="/contact" element={<Contact/>}></Route>  
-                
                 <Route path="/select" element={<SelectType/>}></Route>
                 <Route path="/alltype" element={<Post/>}></Route>
                 <Route path="/movie" element={<Post/>}></Route>
@@ -44,6 +44,7 @@ root.render(
                 <Route path="/tech" element={<Post/>}></Route>
                 <Route path="/fashion" element={<Post/>}></Route>
                 <Route path="/userprofile" element={<UserProfile/>}></Route>
+                <Route path="/admin" element={<Admin/>}></Route>
                 </>
               :
                 <>

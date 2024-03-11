@@ -21,22 +21,22 @@ export default function Layout() {
               <>
                 <li class="nav-item" style={{marginLeft:"27rem"}}>
                   <Link class="nav-link" to="/home">
-                    Home <i class="fa-solid fa-house" style={{color:"rgba(0, 212, 255, 0.9)"}}></i>
+                     <i class="fa-solid fa-house" style={{color:"rgba(0, 212, 255, 0.9)"}}></i> Home
                   </Link>
                   
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/about">
-                    About <i class="fa-solid fa-info" style={{color:"rgba(0, 212, 255, 0.9)"}}></i>
+                     <i class="fa-solid fa-info" style={{color:"rgba(0, 212, 255, 0.9)"}}></i> About
                   </Link>
                 </li>
                 <li class="nav-item">
                   <Link class="nav-link" to="/contact" id="contac">
-                    Contact Me <i class="fa-solid fa-phone" style={{color:"rgba(0, 212, 255, 0.9)"}}></i>
+                    <i class="fa-solid fa-phone" style={{color:"rgba(0, 212, 255, 0.9)"}}></i> Contact Me
                   </Link>
                 </li>
                 <li class="nav-item">
-                  <Link class="nav-link" to="/userprofile" id="contac">Profile <i class="fa-solid fa-user" style={{color:"rgba(0, 212, 255, 0.9)"}}></i></Link>
+                  <Link class="nav-link" to="/userprofile" id="contac"><i class="fa-solid fa-user" style={{color:"rgba(0, 212, 255, 0.9)"}}></i> Profile</Link>
                 </li>
                 <li class="nav nav-underline" style={{marginLeft:"20rem",color:"rgba(0, 212, 255, 0.9)"}}>
                   <Link
@@ -49,7 +49,7 @@ export default function Layout() {
                       window.location.reload();
                     }}
                   >
-                    LogOut ({auth?JSON.parse(auth).username:""}) <i class="fa-solid fa-right-from-bracket"></i>
+                    <i class="fa-solid fa-right-from-bracket"></i> LogOut ({auth?JSON.parse(auth).username:""}) 
                   </Link>
                 </li>
               </>

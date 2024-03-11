@@ -82,14 +82,14 @@ export default function Home() {
                       <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
                         <path />
                       </svg>
-                      <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                      <img class="card__thumb" src={!isVedio?e.picture:"https://i.imgur.com/7D7I6dI.png"} alt="" />
                       <div class="card__header-text">
-                        <h3 class="card__title">{e.title}</h3>
-                        <span class="card__status">1 hour ago</span>
+                        <h1 class="card__title">{e.title}</h1>
+                        <span class="card__status" style={{fontSize:"15px"}}>user : {e.username}</span>
                       </div>
                     </div>
                     {/* <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p> */}
-                    <div class="button-wrapper" style={{marginLeft:"23px"}}>
+                    <div class="button-wrapper" style={{marginLeft:"23px",marginTop:"0"}}>
                       <Link to={`/${e._id}`} class="btn fill">More</Link>
                       <Link to={`/editpost/${e._id}`} class="btn fill ms-2">Edit</Link>
                       <button class="btn fill m-2" onClick={() => {
@@ -118,13 +118,13 @@ export default function Home() {
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="./images/new.jpg" style={{ aspectRatio: 3 / 1, objectFit: "cover" }} className="w-100" alt="load.. " />
+                <img src="./images/5289529-work-place-note-pad-pen-notebook-flatlay-minimal-simple-business-work-space-working-work-blogging-read-book-page-create-paper-pink-brown-white-png-images.jpg" style={{ aspectRatio: 3 / 1, objectFit: "cover"}} className="w-100" alt="load.. " />
               </div>
               <div class="carousel-item">
-                <img src="./images/icons-social-media-social-media-wallpaper-preview.jpg" className="w-100" style={{ aspectRatio: 3 / 1, objectFit: "cover" }} alt="load.. " />
+                <img src="./images/photo-1517336714731-489689fd1ca8_ixlib=rb-1.2.webp" className="w-100" style={{ aspectRatio: 3 / 1, objectFit: "cover" }} alt="load.. " />
               </div>
               <div class="carousel-item">
-                <img src="./images/Improving-Design-Efficiency-by-Leveraging-Cloud-Based-CAD-Collaboration-Tools_Blog-Header.png" style={{ aspectRatio: 3 / 1, objectFit: "cover" }} className="w-100" alt="load.. " />
+                <img src="./images/simple-blogging-backdrop-ztueo7qppaa5m4k4.webp" style={{ aspectRatio: 3 / 1, objectFit: "cover" }} className="w-100" alt="load.. " />
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

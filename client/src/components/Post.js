@@ -22,7 +22,7 @@ const Post = () => {
                     )
                 } else if (catagoty==="movie") {
                     return (
-                        <img src="./images/skybeam_4k.png" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
+                        <img src="./images/deadpool-movie-background-ultra-hd-4k-340792.jpg" style={{aspectRatio:4/1,objectFit:"cover"}} class="h-50" alt="loading.."/>
                     )
                 } else if (catagoty==="sport") {
                     return (

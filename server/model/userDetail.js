@@ -14,15 +14,10 @@ const userSchema=mongoose.Schema({
         require:true,
         unique:true
     },
-
     userImage:{
         type:String,
         require:true
     },
-    // role:{
-    //     type:String,
-    //     require:true
-    // },
     phoneNo:{
         type:Number,
         require:true,
