@@ -38,7 +38,7 @@ export default function Layout() {
                 <li class="nav-item">
                   <Link class="nav-link" to="/userprofile" id="contac"><i class="fa-solid fa-user" style={{color:"rgba(0, 212, 255, 0.9)"}}></i> Profile</Link>
                 </li>
-                <li class="nav nav-underline" style={{marginLeft:"20rem",color:"rgba(0, 212, 255, 0.9)"}}>
+                <li class="nav nav-underline" style={{marginLeft:"15rem",color:"rgba(0, 212, 255, 0.9)"}}>
                   <Link
                     class="nav-link"
                     style={{ color: "red" }}

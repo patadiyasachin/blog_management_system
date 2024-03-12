@@ -15,6 +15,7 @@ import Contact from "./components/Contact";
 import UserProfile from "./components/userProfile";
 import HomePage from "./components/HomePage";
 import Admin from "./components/Admin";
+import ProfilePageAdmin from "./components/ProfilePageAdmin";
 // import DataProvider from "./contex/DataProvider";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const auth = localStorage.getItem("user");
@@ -23,6 +24,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>}></Route>
+        <Route path="/admin" element={<Admin/>}></Route>
+        <Route path="/admin/profile/:id" element={<ProfilePageAdmin/>}></Route>
         <Route path="/" element={<Layout />}>
           {/* <DataProvider> */}
           {/* </DataProvider> */}
@@ -44,7 +47,6 @@ root.render(
                 <Route path="/tech" element={<Post/>}></Route>
                 <Route path="/fashion" element={<Post/>}></Route>
                 <Route path="/userprofile" element={<UserProfile/>}></Route>
-                <Route path="/admin" element={<Admin/>}></Route>
                 </>
               :
                 <>
