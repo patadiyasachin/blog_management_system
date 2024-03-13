@@ -30,7 +30,7 @@ export default function ProfilePageAdmin(){
                                             </div>
                                             <h6 class="f-w-600">{userData.name}</h6>
                                             <p>User</p>
-                                            <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                            <i class="mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                         </div>
                                     </div>
                                     <div class="col-sm-8">

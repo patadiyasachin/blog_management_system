@@ -25,9 +25,13 @@ export default function Admin() {
                     {/* <img class="card__thumb" src={user.userImage}/> */}
                     <div class="col col-3" data-label="Customer Name" style={{fontSize:"15px"}}>{user.username}</div>
                     <div class="col col-2" data-label="Amount" style={{fontSize:"15px"}}>{user.phoneNo?user.phoneNo:"___"}</div>
-                    <div class="col col-5" data-label="Payment Status"><i class="fa-solid fa-eye" style={{fontSize:"18px",marginRight:"10px"}} onClick={()=>{
+                    <div class="col col-5" data-label="Payment Status"><i class="fa-solid fa-eye" style={{fontSize:"18px",marginRight:"15px"}} onClick={()=>{
                         navigate(`/admin/profile/${user.username}`)
-                    }}></i> <i class="fa-solid fa-trash" style={{fontSize:"18px"}} onClick={()=>{
+                    }}></i> 
+                    <i class="fa-solid fa-list-ul" style={{fontSize:"18px",marginRight:"15px"}} onClick={()=>{
+                        navigate(`/admin/addblogs/${user._id}`)
+                    }}></i>
+                    <i class="fa-solid fa-trash" style={{fontSize:"18px"}} onClick={()=>{
                         fetch(`http://localhost:3030/admin/deleteuser/${user.username}`,{method:"DELETE"})
                         .then((res)=>{
                             setUserData(userData.filter((data)=>{return data.username!==user.username}))
