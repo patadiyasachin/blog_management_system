@@ -70,7 +70,7 @@ export default function Home() {
                 <a href="" class="card">
                 {
                   isVedio ?
-                    <video width="320" height="240" controls>
+                    <video width="320" height="240" controls style={{height:"50vh"}}>
                       <source src={e.picture} type="video/mp4"/>
                       Your browser does not support the video tag.
                     </video>

@@ -3,6 +3,7 @@ import "../index.css";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 const Post = () => {
+    const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
     const [data,setData]=useState({})
     const username=JSON.parse(localStorage.getItem('user')).username
@@ -52,6 +53,7 @@ const Post = () => {
                 </div>
                 <div className="col-4">
                     <button className="mt-2" onClick={async()=>{
+                        setLoading(true)
                         const formData=new FormData()
                         formData.append("userid",uId)
                         formData.append("user_image",data.user_image)
@@ -60,11 +62,14 @@ const Post = () => {
                         formData.append("username",username)
                         formData.append("catagories",catagoty)
                         await axios.post('http://localhost:3030/addpost',formData)
+                        .then(()=>{
+                            setLoading(false)
+                            navigate('/home')
+                        })
                         console.log(data)
                         console.log(username)
                         console.log(catagoty)
-                        navigate('/home')
-                    }}>Publish</button>
+                    }}>{loading?"loading.....":"Publish"}</button>
                 </div>  
                 {/* <div class="text-center">
                     <div class="spinner-border" role="status">

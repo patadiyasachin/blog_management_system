@@ -165,22 +165,36 @@ router.delete('/:id',async(req,res)=>{
     console.log(error)
   }
 })
-
+  
 router.put('/editpost/:id',upload.single('user_image'),async(req,res)=>{
   try{
-    const data=await addpost.findOne({_id:req.params.id})
-    const result = await uplodToCloudinary(req.file.path);
-    data.title=req.body.title
-    data.description=req.body.description
-    data.catagories=req.body.catagories
-    data.picture=result
-    await data.save()
-    if(data){
-      res.send(data)
+    if(req.file){
+      const data=await addpost.findOne({_id:req.params.id})
+      const result = await uplodToCloudinary(req.file.path);
+      data.title=req.body.title
+      data.description=req.body.description
+      data.catagories=req.body.catagories
+      data.picture=result
+      await data.save()
+      if(data){
+        res.send(data)
+      }else{
+        res.send("Data Not Updated !!")
+      }
+      console.log(data)
     }else{
-      res.send("Data Not Updated !!")
+      const data=await addpost.findOne({_id:req.params.id})
+      data.title=req.body.title
+      data.description=req.body.description
+      data.catagories=req.body.catagories
+      await data.save()
+      if(data){
+        res.send(data)
+      }else{
+        res.send("Data Not Updated !!")
+      }
+      console.log(data)
     }
-    console.log(data)
   }catch(error){
     console.log(error);
   }
