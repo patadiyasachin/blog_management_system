@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 import '../App.css'
 export default function EditPost(){
+    const [loader,setLoader]=useState(false)
     const [data,setData]=useState({})
     const {id}=useParams()
     const navigate=useNavigate()
@@ -19,9 +20,10 @@ export default function EditPost(){
         formData.append("title",data.title)
         formData.append("description",data.description)
         formData.append("catagories",data.catagories)
-        
+        setLoader(true)
         axios.put(`http://localhost:3030/editpost/${id}`,formData)
         .then((res)=>{
+            setLoader(false)
             navigate('/home')
         })
     }   
@@ -30,6 +32,7 @@ export default function EditPost(){
             <div class="parentDiv">
                 <div class="containerForEdit">
                     {/* <div class="brand-logo"></div> */}
+                    {loader?<span class="loader"></span>:""}
                     <div class="brand-title">Edit Blog Here !</div>
                     <div class="inputsForEdit">
                         <label>Title</label>

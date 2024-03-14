@@ -52,7 +52,12 @@ export default function GetAllBlogAdmin(){
 
     return(
         <div className="row" style={{marginLeft:"20px"}}>
-            {blog.length!=0?formatedBlog:<div style={{textAlign:"center",color:"gray",fontSize:"30px"}}>No Blog Found!!</div>}
+            {blog.length!=0?formatedBlog:
+            <>
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center",height:"90vh",fontSize:"30px",color:"gray"}}>
+                <div>No Blog Found !!</div>
+            </div>
+            </>}
         </div>
     )
 }

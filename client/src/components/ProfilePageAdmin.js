@@ -35,7 +35,7 @@ export default function ProfilePageAdmin(){
                                     </div>
                                     <div class="col-sm-8">
                                         <div style={{display:"flex",justifyContent:"end",alignItems:"end",marginTop:"20px",marginRight:"20px",fontSize:"20px"}}>
-                                            <i class="fa-solid fa-arrow-left" onClick={()=>{
+                                            <i class="fa-solid fa-arrow-left myCustomClass" onClick={()=>{
                                                 navigate('/admin')
                                             }}></i>
                                         </div>

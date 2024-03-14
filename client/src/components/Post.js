@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../index.css";
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
+
 const Post = () => {
     const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
@@ -69,7 +70,7 @@ const Post = () => {
                         console.log(data)
                         console.log(username)
                         console.log(catagoty)
-                    }}>{loading?"loading.....":"Publish"}</button>
+                    }}>Publish</button>
                 </div>  
                 {/* <div class="text-center">
                     <div class="spinner-border" role="status">
@@ -82,6 +83,7 @@ const Post = () => {
                 <textarea style={{height:90,width:600,margin:20,maxHeight:90,minHeight:90,borderRadius:10,border:"2px solid lightgrey"}} onChange={(e)=>{
                         setData({...data,description:e.target.value})
                     }} placeholder="Add Discription ..."/>
+                {loading?<span class="loader"></span>:""}
             </div>
     </div>
   );

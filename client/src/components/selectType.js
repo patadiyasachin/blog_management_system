@@ -8,7 +8,7 @@ export default function SelectType(){
             <button class="button-33 m-3 me-5 widthAdjust" onClick={()=>{
                 navigate('/alltype')
                 localStorage.setItem("type","alltype")
-            }}>All Type</button>
+            }}>Personal</button>
             <button class="button-33 m-3 me-5 widthAdjust" onClick={()=>{
                 navigate('/music')
                 localStorage.setItem("type","music")

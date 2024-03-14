@@ -19,10 +19,6 @@ export default function Home() {
       })
   }, [])
 
-  // const myStyle=()=>{
-  //   document.getElementById('sportType').style.transition="smooth"
-  // }
-
   var formatedPost = tempData.map((e, index) => {
     localStorage.setItem("total_blog", index + 1)
     const splt = e.picture.split('.')
@@ -160,7 +156,7 @@ export default function Home() {
                     setTempData(data.filter((data) => { return data.catagories === "alltype" }))
                     setLen(tempData.length)
                     console.log(data, len)
-                  }}>All Type</td>
+                  }}>Personal</td>
                 </tr>
                 <tr>
                   <td style={{ backgroundColor: "#f6f5f7" }} onClick={() => {
@@ -203,10 +199,14 @@ export default function Home() {
         </div>
         <div className="col">
           <div className="row">
-            {formatedPost}
-          </div>
-          <div id="dataNotFoundDiv" style={{ textAlign: "center" }}>
-            {/* Data not found !! */}
+            {/* {formatedPost} */}
+
+            {tempData.length!=0?formatedPost:
+            <>
+            <div style={{display:"flex",justifyContent:"center",alignItems:"center",height:"50vh",fontSize:"30px",color:"gray"}} data-aos="zoom-in">
+                <div>No Blog Found !!</div>
+            </div>
+            </>}
           </div>
         </div>
       </div>
