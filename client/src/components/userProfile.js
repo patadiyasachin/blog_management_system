@@ -18,7 +18,7 @@ export default function UserProfile() {
     console.warn("user detail is",userDetail)
     return (
         <>
-            <div class="page-content page-container" id="page-content">
+            <div class="page-content page-container" id="page-content" data-aos="zoom-in">
                 <div class="padding">
                     <div class="row d-flex justify-content-center">
                         <div class="col-xl-7 col-md-12">

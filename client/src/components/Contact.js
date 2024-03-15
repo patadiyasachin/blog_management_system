@@ -5,7 +5,7 @@ export default function Contact() {
   const navigate=useNavigate()
     const [contactDetail,setContactDetail]=useState({})
   return (
-    <div class="mainContactDiv">
+    <div class="mainContactDiv" data-aos="zoom-in">
       <div class="contact-form-container">
         <div class="contact-us">
           {/* <i class="fa-solid fa-delete-left" style={{color:"white"}} onClick={()=>{

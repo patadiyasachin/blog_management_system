@@ -3,7 +3,7 @@ import '../App.css'
 export default function About(){
     return(
         <>
-            <div class="container1">
+            <div class="container1" data-aos="zoom-in">
                 <header>
                     <h1>About Us</h1>
                 </header>
