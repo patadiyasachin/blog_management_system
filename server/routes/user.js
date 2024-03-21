@@ -27,7 +27,7 @@ router.post("/signup", upload.single('user_signup_image'),async (req, res) => {
     const d = await data.save();
     console.log(".......................",d);
     const paylod = {
-      id: data._id,
+      id: d,
     };
     const token = jwt.sign(paylod, sec_key);
     res.status(200).json({d,token});
@@ -46,7 +46,7 @@ router.post("/login", async (req, res) => {
     if (req.body.username !== "" && req.body.password !== "") {
       if (d) {
         const paylod = {
-          id: d._id,
+          id: d,
         };
   
         const token = jwt.sign(paylod, sec_key);

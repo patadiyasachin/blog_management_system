@@ -7,7 +7,11 @@ export default function HomePage() {
     const token = localStorage.getItem('token')
     let isVedio = false
     useEffect(() => {
-        fetch('http://localhost:3030/getAllPost')
+        fetch('http://localhost:3030/getAllPost',{
+            headers:{
+                'Authorization':`bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then((res) => {
                 return res.json()
             })
